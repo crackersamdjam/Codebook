@@ -1,8 +1,8 @@
 #pragma once
 /**
- * brief Sparse Table
- * docs docs/sparse_table.md
- * info todo: let this do operations other than just range max
+ * @brief Sparse Table
+ * @docs docs/sparse_table.md
+ * @info todo: let this do operations other than just range max
  */
 
 template<class T> struct sparse_table{

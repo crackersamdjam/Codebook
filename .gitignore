@@ -1,6 +1,6 @@
 cmake-build-debug/
 CMakeLists.txt
-.*/
+#.*/
 !.gitignore
 !.gitattributes
 !.github
