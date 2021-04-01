@@ -1,16 +1,16 @@
 ---
 data:
-  libraryCategories:
-  - name: tests/verify
-    pages:
-    - icon: ':warning:'
-      path: tests/verify/lc_aplusb.cpp
-      title: tests/verify/lc_aplusb.cpp
+  libraryCategories: []
   verificationCategories:
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
       path: example.test.cpp
       title: example.test.cpp
+  - name: tests
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: tests/aplusb.test.cpp
+      title: tests/aplusb.test.cpp
 layout: toppage
 ---
