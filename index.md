@@ -1,6 +1,11 @@
 ---
 data:
-  libraryCategories: []
+  libraryCategories:
+  - name: tests/verify
+    pages:
+    - icon: ':warning:'
+      path: tests/verify/lc_aplusb.cpp
+      title: tests/verify/lc_aplusb.cpp
   verificationCategories:
   - name: .
     pages:
