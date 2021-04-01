@@ -1,0 +1,10 @@
+cmake-build-debug/
+CMakeLists.txt
+.*/
+!.gitignore
+!.gitattributes
+!.github
+!.verify-helper
+
+# For quick testing
+testing/
