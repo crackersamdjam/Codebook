@@ -1,4 +1,6 @@
 #pragma once
+#include "../utils/template.h"
+
 /**
  * @brief Sparse Table
  * @docs docs/sparse_table.md
