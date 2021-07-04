@@ -1,32 +1,49 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: content/data_structures/bit.h
+    title: Binary Indexed Tree
+  - icon: ':heavy_check_mark:'
+    path: content/data_structures/sparse_table.h
+    title: Sparse Table
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: tests/bit.test.cpp
+    title: tests/bit.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/staticrmq.test.cpp
+    title: tests/staticrmq.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/template.md
     document_title: My starter code
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
-    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ content/utils/template.h: line 6: #pragma once found in a non-first line\n"
-  code: "/**\n * @brief My starter code\n * @docs docs/template.md\n */\n\n#pragma\
-    \ once\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\nusing\
-    \ namespace std;\n"
+  bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
+    \ * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
+    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
+    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
+    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
+    #endif\n\nusing namespace std;\n"
+  code: "/**\n * @brief My starter code\n * @docs docs/template.md\n */\n\n#include\
+    \ <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\ntemplate<typename\
+    \ T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename T, typename...\
+    \ Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
+    \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\n"
   dependsOn: []
   isVerificationFile: false
   path: content/utils/template.h
-  requiredBy: []
-  timestamp: '2021-04-01 17:21:16-04:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  requiredBy:
+  - content/data_structures/bit.h
+  - content/data_structures/sparse_table.h
+  timestamp: '2021-07-04 14:49:31-04:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - tests/bit.test.cpp
+  - tests/staticrmq.test.cpp
 documentation_of: content/utils/template.h
 layout: document
 redirect_from:
