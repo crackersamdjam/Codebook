@@ -7,6 +7,9 @@ data:
       path: content/data_structures/bit.h
       title: Binary Indexed Tree
     - icon: ':heavy_check_mark:'
+      path: content/data_structures/segment_tree.h
+      title: Segment Tree
+    - icon: ':heavy_check_mark:'
       path: content/data_structures/sparse_table.h
       title: Sparse Table
   - name: content/utils
@@ -23,6 +26,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/bit.test.cpp
       title: tests/bit.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/segment_tree.test.cpp
+      title: tests/segment_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/staticrmq.test.cpp
       title: tests/staticrmq.test.cpp
