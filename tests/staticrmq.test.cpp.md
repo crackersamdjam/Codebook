@@ -26,17 +26,17 @@ data:
     \ a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
     \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\n#line 3 \"content/data_structures/sparse_table.h\"\
     \n\n/**\n * @brief Sparse Table\n * @docs docs/sparse_table.md\n * @info todo:\
-    \ let this do operations other than just range max\n */\n\ntemplate<class T> struct\
-    \ sparse_table{\n\tint n; vector<vector<T>> sp;\n\tT query(int l, int r){\n\t\t\
-    int k = __lg(r-l+1);\n\t\treturn min(sp[k][l], sp[k][r-(1<<k)+1]);\n\t}\n\tvoid\
-    \ build(vector<T> v){\n\t\tn = size(v);\n\t\tsp.resize(__lg(n)+1);\n\t\tsp[0]\
-    \ = v;\n\t\tfor(int i = 1; i <= __lg(n); i++){\n\t\t\tsp[i].resize(n, -1);\n\t\
-    \t\tfor(int j = 0; j+(1<<i)-1 < n; j++){\n\t\t\t\tsp[i][j] = min(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);\n\
-    \t\t\t}\n\t\t}\n\t}\n};\n#line 6 \"tests/staticrmq.test.cpp\"\n\nint main(){\n\
-    \tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\t\n\tint n, q;\n\tcin>>n>>q;\n\
-    \tvector<int> v(n);\n\tfor(auto &i: v)\n\t\tcin>>i;\n\t\n\tsparse_table<int> sp;\n\
-    \tsp.build(v);\n\t\n\twhile(q--){\n\t\tint l, r;\n\t\tcin>>l>>r;\n\t\tcout<<sp.query(l,\
-    \ r-1)<<'\\n';\n\t}\n}\n"
+    \ let this do operations other than just range max\n *\n * have a separate template\
+    \ for binary lifting, this one is just rmq\n */\n\ntemplate<class T> struct sparse_table{\n\
+    \tint n; vector<vector<T>> sp;\n\tT query(int l, int r){\n\t\tint k = __lg(r-l+1);\n\
+    \t\treturn min(sp[k][l], sp[k][r-(1<<k)+1]);\n\t}\n\tvoid build(vector<T> v){\n\
+    \t\tn = size(v);\n\t\tsp.resize(__lg(n)+1);\n\t\tsp[0] = v;\n\t\tfor(int i = 1;\
+    \ i <= __lg(n); i++){\n\t\t\tsp[i].resize(n, -1);\n\t\t\tfor(int j = 0; j+(1<<i)-1\
+    \ < n; j++){\n\t\t\t\tsp[i][j] = min(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);\n\t\t\
+    \t}\n\t\t}\n\t}\n};\n#line 6 \"tests/staticrmq.test.cpp\"\n\nint main(){\n\tios_base::sync_with_stdio(0);\n\
+    \tcin.tie(0);\n\t\n\tint n, q;\n\tcin>>n>>q;\n\tvector<int> v(n);\n\tfor(auto\
+    \ &i: v)\n\t\tcin>>i;\n\t\n\tsparse_table<int> sp;\n\tsp.build(v);\n\t\n\twhile(q--){\n\
+    \t\tint l, r;\n\t\tcin>>l>>r;\n\t\tcout<<sp.query(l, r-1)<<'\\n';\n\t}\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include <bits/stdc++.h>\n\
     #define all(x) (x).begin(), (x).end()\nusing namespace std;\n#include \"../content/data_structures/sparse_table.h\"\
     \n\nint main(){\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\t\n\tint n,\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: tests/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2021-07-04 14:49:31-04:00'
+  timestamp: '2021-07-05 21:49:38-04:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/staticrmq.test.cpp

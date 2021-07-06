@@ -6,6 +6,9 @@ data:
     path: content/data_structures/bit.h
     title: Binary Indexed Tree
   - icon: ':heavy_check_mark:'
+    path: content/data_structures/lazy_segment_tree.h
+    title: Lazy Segment Tree
+  - icon: ':heavy_check_mark:'
     path: content/data_structures/segment_tree.h
     title: Segment Tree
   - icon: ':heavy_check_mark:'
@@ -15,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/bit.test.cpp
     title: tests/bit.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/lazy_segment_tree.test.cpp
+    title: tests/lazy_segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/segment_tree.test.cpp
     title: tests/segment_tree.test.cpp
@@ -44,12 +50,14 @@ data:
   path: content/utils/template.h
   requiredBy:
   - content/data_structures/segment_tree.h
+  - content/data_structures/lazy_segment_tree.h
   - content/data_structures/bit.h
   - content/data_structures/sparse_table.h
   timestamp: '2021-07-04 14:49:31-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/segment_tree.test.cpp
+  - tests/lazy_segment_tree.test.cpp
   - tests/bit.test.cpp
   - tests/staticrmq.test.cpp
 documentation_of: content/utils/template.h
