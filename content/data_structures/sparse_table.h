@@ -5,6 +5,8 @@
  * @brief Sparse Table
  * @docs docs/sparse_table.md
  * @info todo: let this do operations other than just range max
+ *
+ * have a separate template for binary lifting, this one is just rmq
  */
 
 template<class T> struct sparse_table{
