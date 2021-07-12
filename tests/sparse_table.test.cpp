@@ -15,7 +15,7 @@ int main(){
 		cin>>i;
 	
 	sparse_table<int> sp;
-	sp.build(v);
+	sp.build(v, [](int x, int y){ return min(x, y);});
 	
 	while(q--){
 		int l, r;

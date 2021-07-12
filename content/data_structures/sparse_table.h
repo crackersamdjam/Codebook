@@ -4,25 +4,27 @@
 /**
  * @brief Sparse Table
  * @docs docs/sparse_table.md
- * @info todo: let this do operations other than just range max
- *
- * have a separate template for binary lifting, this one is just rmq
+ * @info
  */
 
 template<class T> struct sparse_table{
+	
 	int n; vector<vector<T>> sp;
+	function<T(T, T)> merge;
+	
 	T query(int l, int r){
 		int k = __lg(r-l+1);
-		return min(sp[k][l], sp[k][r-(1<<k)+1]);
+		return merge(sp[k][l], sp[k][r-(1<<k)+1]);
 	}
-	void build(vector<T> v){
+	void build(vector<T> v, function<T(T, T)> f){
+		merge = f;
 		n = size(v);
 		sp.resize(__lg(n)+1);
 		sp[0] = v;
 		for(int i = 1; i <= __lg(n); i++){
 			sp[i].resize(n, -1);
 			for(int j = 0; j+(1<<i)-1 < n; j++){
-				sp[i][j] = min(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);
+				sp[i][j] = merge(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);
 			}
 		}
 	}
