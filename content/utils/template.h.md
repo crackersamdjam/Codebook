@@ -25,8 +25,8 @@ data:
     path: tests/segment_tree.test.cpp
     title: tests/segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
-    path: tests/staticrmq.test.cpp
-    title: tests/staticrmq.test.cpp
+    path: tests/sparse_table.test.cpp
+    title: tests/sparse_table.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -59,7 +59,7 @@ data:
   - tests/segment_tree.test.cpp
   - tests/lazy_segment_tree.test.cpp
   - tests/bit.test.cpp
-  - tests/staticrmq.test.cpp
+  - tests/sparse_table.test.cpp
 documentation_of: content/utils/template.h
 layout: document
 redirect_from:

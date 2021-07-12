@@ -36,7 +36,7 @@ data:
       path: tests/segment_tree.test.cpp
       title: tests/segment_tree.test.cpp
     - icon: ':heavy_check_mark:'
-      path: tests/staticrmq.test.cpp
-      title: tests/staticrmq.test.cpp
+      path: tests/sparse_table.test.cpp
+      title: tests/sparse_table.test.cpp
 layout: toppage
 ---
