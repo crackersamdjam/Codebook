@@ -3,5 +3,5 @@
 "tests/bit.test.cpp": "2021-07-04 14:49:31 -0400",
 "tests/lazy_segment_tree.test.cpp": "2021-07-05 21:49:47 -0400",
 "tests/segment_tree.test.cpp": "2021-07-05 18:57:30 -0400",
-"tests/staticrmq.test.cpp": "2021-07-05 21:49:38 -0400"
+"tests/sparse_table.test.cpp": "2021-07-12 14:26:49 -0400"
 }
