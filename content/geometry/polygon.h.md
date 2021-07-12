@@ -13,6 +13,8 @@ data:
   _pathExtension: h
   _verificationStatusIcon: ':warning:'
   attributes:
+    _deprecated_at_docs: docs/polygon.md
+    document_title: Polygon
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
     \ * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
@@ -50,19 +52,20 @@ data:
     \t\t\thull.push_back(pts[i]);\n\t\t}\n\t\thull.pop_back();\n\t\treverse(all(pts));\n\
     \t}\n\tif(size(hull) == 2 and hull[0] == hull[1])\n\t\thull.pop_back();\n\tif(!size(hull)\
     \ and size(pts))\n\t\thull.push_back(pts[0]);\n\treturn hull;\n}\n\n\n#undef x\n\
-    #undef y\n#line 3 \"content/geometry/polygon.h\"\n\nT getarea(const vector<pt>\
-    \ &v){\n\tT a = 0;\n\tfor(int i = 2; i < size(v); i++)\n\t\ta += ccw(v[0], v[i-1],\
-    \ v[i]);\n\treturn a;\n}\n"
-  code: "#pragma once\n#include \"point.h\"\n\nT getarea(const vector<pt> &v){\n\t\
+    #undef y\n#line 3 \"content/geometry/polygon.h\"\n\n/**\n * @brief Polygon\n *\
+    \ @docs docs/polygon.md\n * @info\n */\n \nT getarea(const vector<pt> &v){\n\t\
     T a = 0;\n\tfor(int i = 2; i < size(v); i++)\n\t\ta += ccw(v[0], v[i-1], v[i]);\n\
-    \treturn a;\n}"
+    \treturn a;\n}\n"
+  code: "#pragma once\n#include \"point.h\"\n\n/**\n * @brief Polygon\n * @docs docs/polygon.md\n\
+    \ * @info\n */\n \nT getarea(const vector<pt> &v){\n\tT a = 0;\n\tfor(int i =\
+    \ 2; i < size(v); i++)\n\t\ta += ccw(v[0], v[i-1], v[i]);\n\treturn a;\n}"
   dependsOn:
   - content/geometry/point.h
   - content/utils/template.h
   isVerificationFile: false
   path: content/geometry/polygon.h
   requiredBy: []
-  timestamp: '2021-07-12 16:33:56-04:00'
+  timestamp: '2021-07-12 16:39:31-04:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: content/geometry/polygon.h
@@ -70,5 +73,5 @@ layout: document
 redirect_from:
 - /library/content/geometry/polygon.h
 - /library/content/geometry/polygon.h.html
-title: content/geometry/polygon.h
+title: Polygon
 ---

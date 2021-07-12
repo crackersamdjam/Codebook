@@ -7,7 +7,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: content/geometry/polygon.h
-    title: content/geometry/polygon.h
+    title: Polygon
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: h

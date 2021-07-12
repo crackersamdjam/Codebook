@@ -25,7 +25,7 @@ data:
       title: Point
     - icon: ':warning:'
       path: content/geometry/polygon.h
-      title: content/geometry/polygon.h
+      title: Polygon
   - name: content/utils
     pages:
     - icon: ':heavy_check_mark:'

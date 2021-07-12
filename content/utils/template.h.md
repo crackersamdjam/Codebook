@@ -22,7 +22,7 @@ data:
     title: Point
   - icon: ':warning:'
     path: content/geometry/polygon.h
-    title: content/geometry/polygon.h
+    title: Polygon
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/bit.test.cpp
