@@ -9,11 +9,20 @@ data:
     path: content/data_structures/lazy_segment_tree.h
     title: Lazy Segment Tree
   - icon: ':heavy_check_mark:'
+    path: content/data_structures/li_chao_tree.h
+    title: Li Chao Tree
+  - icon: ':heavy_check_mark:'
     path: content/data_structures/segment_tree.h
     title: Segment Tree
   - icon: ':heavy_check_mark:'
     path: content/data_structures/sparse_table.h
     title: Sparse Table
+  - icon: ':warning:'
+    path: content/geometry/point.h
+    title: Point
+  - icon: ':warning:'
+    path: content/geometry/polygon.h
+    title: content/geometry/polygon.h
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/bit.test.cpp
@@ -21,6 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/lazy_segment_tree.test.cpp
     title: tests/lazy_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/li_chao_tree.test.cpp
+    title: tests/li_chao_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/segment_tree.test.cpp
     title: tests/segment_tree.test.cpp
@@ -49,13 +61,17 @@ data:
   isVerificationFile: false
   path: content/utils/template.h
   requiredBy:
+  - content/geometry/point.h
+  - content/geometry/polygon.h
   - content/data_structures/segment_tree.h
   - content/data_structures/lazy_segment_tree.h
+  - content/data_structures/li_chao_tree.h
   - content/data_structures/bit.h
   - content/data_structures/sparse_table.h
   timestamp: '2021-07-04 14:49:31-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/li_chao_tree.test.cpp
   - tests/segment_tree.test.cpp
   - tests/lazy_segment_tree.test.cpp
   - tests/bit.test.cpp

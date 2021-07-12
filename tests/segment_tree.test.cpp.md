@@ -27,18 +27,18 @@ data:
     \n\n/**\n * @brief Segment Tree\n * @docs docs/segment_tree.md\n * @info\n */\n\
     \ntemplate<class T, class L> struct segment_tree{\n\tint SZ;\n\tvector<T> val;\n\
     \tfunction<T(T, T)> merge;\n\tfunction<T(T, L)> apply;\n\t\n\tvoid init(int n,\
-    \ T def, function<T(T, T)> f, function<T(T, L)> g){\n\t\tSZ = n;\n\t\tval.resize(__builtin_popcount(n)\
-    \ == 1 ? 2*n : 4*n, def);\n\t\t// If n is a power of 2, only 2n is needed. Otherwise\
-    \ 4n.\n\t\tmerge = f;\n\t\tapply = g;\n\t}\n\n\t#define lc (rt<<1)\n\t#define\
-    \ rc (rt<<1|1)\n\t#define nm ((nl+nr)/2)\n\t\n\tT _query(int l, int r, int nl,\
-    \ int nr, int rt){\n\t\tif(r < nl or nr < l) return val[0];\n\t\tif(l <= nl and\
-    \ nr <= r) return val[rt];\n\t\treturn merge(_query(l, r, nl, nm, lc), _query(l,\
-    \ r, nm+1, nr, rc));\n\t}\n\tT query(int l, int r){ return _query(l, r, 0, SZ-1,\
-    \ 1); }\n\t\n\tvoid _update(int i, L x, int nl, int nr, int rt){\n\t\tif(nl ==\
-    \ nr){\n\t\t\tval[rt] = apply(val[rt], x);\n\t\t\treturn;\n\t\t}\n\t\ti <= nm\
-    \ ? _update(i, x, nl, nm, lc) : _update(i, x, nm+1, nr, rc);\n\t\tval[rt] = merge(val[lc],\
-    \ val[rc]);\n\t}\n\tvoid update(int i, L x){ _update(i, x, 0, SZ-1, 1); };\n\n\
-    \t#undef lc\n\t#undef rc\n\t#undef nm\n};\n#line 3 \"tests/segment_tree.test.cpp\"\
+    \ T def, function<T(T, T)> f, function<T(T, L)> g){\n\t\tSZ = n;\n\t\twhile(n&(n-1))\n\
+    \t\t\tn++;\n\t\tval.resize(2*n, def);\n\t\t// If n is a power of 2, only 2n is\
+    \ needed. Otherwise 4n.\n\t\tmerge = f;\n\t\tapply = g;\n\t}\n\n\t#define lc (rt<<1)\n\
+    \t#define rc (rt<<1|1)\n\t#define nm ((nl+nr)/2)\n\t\n\tT _query(int l, int r,\
+    \ int nl, int nr, int rt){\n\t\tif(r < nl or nr < l) return val[0];\n\t\tif(l\
+    \ <= nl and nr <= r) return val[rt];\n\t\treturn merge(_query(l, r, nl, nm, lc),\
+    \ _query(l, r, nm+1, nr, rc));\n\t}\n\tT query(int l, int r){ return _query(l,\
+    \ r, 0, SZ-1, 1); }\n\t\n\tvoid _update(int i, L x, int nl, int nr, int rt){\n\
+    \t\tif(nl == nr){\n\t\t\tval[rt] = apply(val[rt], x);\n\t\t\treturn;\n\t\t}\n\t\
+    \ti <= nm ? _update(i, x, nl, nm, lc) : _update(i, x, nm+1, nr, rc);\n\t\tval[rt]\
+    \ = merge(val[lc], val[rc]);\n\t}\n\tvoid update(int i, L x){ _update(i, x, 0,\
+    \ SZ-1, 1); };\n\n\t#undef lc\n\t#undef rc\n\t#undef nm\n};\n#line 3 \"tests/segment_tree.test.cpp\"\
     \n\nusing ll = long long;\nusing p = pair<ll, ll>;\nconstexpr ll mod = 998244353;\n\
     \nint main(){\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
     \t\n\tint n, q;\n\tcin>>n>>q;\n\t\n\tsegment_tree<p, p> ST;\n\tST.init(n+5, {1,\
@@ -67,7 +67,7 @@ data:
   isVerificationFile: true
   path: tests/segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2021-07-05 18:57:30-04:00'
+  timestamp: '2021-07-12 16:33:24-04:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/segment_tree.test.cpp
