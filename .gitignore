@@ -1,8 +1,8 @@
 cmake-build-debug/
 CMakeLists.txt
 .idea/
-.verify-helper/cache
-.verify-helper/markdown
+
+# Verification Helper gitignores are handled by .verify-helper/.gitignore
 
 # For quick testing
 testing/
