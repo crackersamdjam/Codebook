@@ -21,19 +21,19 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n#line 3 \"content/string/manacher.h\"\n\n/**\n\
-    \ * @brief Manacher's Algorithm\n * @docs docs/manacher.md\n * @info\n */\n \n\
-    pair<vector<int>, vector<int>> manacher(string s){\n\ts = \"@\"+s+\"#\";\n\tint\
-    \ n = (int)size(s);\n\tvector<int> p1(n), p2(n); //radii of palindromes (1 odd,\
-    \ 2 even length)\n\t\n\tfor(int i = 1, mx = 0, p = 0; i < n-1; i++){\n\t\tp1[i]\
-    \ = (i >= mx) ? 1 : min(mx-i, p1[p*2-i]);\n\t\twhile(s[i-p1[i]] == s[i+p1[i]])\n\
-    \t\t\tp1[i]++;\n\t\tif(i+p1[i] > mx)\n\t\t\tmx = i+p1[i], p = i;\n\t}\n\tfor(int\
-    \ i = 1, mx = 0, p = 0; i < n-1; i++){\n\t\tp2[i] = (i >= mx) ? 0 : min(mx-i,\
-    \ p2[p*2-i+2]);\n\t\twhile(s[i-p2[i]-1] == s[i+p2[i]])\n\t\t\tp2[i]++;\n\t\tif(i+p2[i]\
-    \ > mx)\n\t\t\tmx = i+p2[i], p = i-1;\n\t}\n\tp1.erase(p1.begin()); p2.erase(p2.begin());\n\
-    \tp1.pop_back(); p2.pop_back();\n\treturn {p1, p2};\n}\n"
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/manacher.h\"\
+    \n\n/**\n * @brief Manacher's Algorithm\n * @docs docs/manacher.md\n */\n \npair<vector<int>,\
+    \ vector<int>> manacher(string s){\n\ts = \"@\"+s+\"#\";\n\tint n = (int)size(s);\n\
+    \tvector<int> p1(n), p2(n); //radii of palindromes (1 odd, 2 even length)\n\t\n\
+    \tfor(int i = 1, mx = 0, p = 0; i < n-1; i++){\n\t\tp1[i] = (i >= mx) ? 1 : min(mx-i,\
+    \ p1[p*2-i]);\n\t\twhile(s[i-p1[i]] == s[i+p1[i]])\n\t\t\tp1[i]++;\n\t\tif(i+p1[i]\
+    \ > mx)\n\t\t\tmx = i+p1[i], p = i;\n\t}\n\tfor(int i = 1, mx = 0, p = 0; i <\
+    \ n-1; i++){\n\t\tp2[i] = (i >= mx) ? 0 : min(mx-i, p2[p*2-i+2]);\n\t\twhile(s[i-p2[i]-1]\
+    \ == s[i+p2[i]])\n\t\t\tp2[i]++;\n\t\tif(i+p2[i] > mx)\n\t\t\tmx = i+p2[i], p\
+    \ = i-1;\n\t}\n\tp1.erase(p1.begin()); p2.erase(p2.begin());\n\tp1.pop_back();\
+    \ p2.pop_back();\n\treturn {p1, p2};\n}\n"
   code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Manacher's\
-    \ Algorithm\n * @docs docs/manacher.md\n * @info\n */\n \npair<vector<int>, vector<int>>\
+    \ Algorithm\n * @docs docs/manacher.md\n */\n \npair<vector<int>, vector<int>>\
     \ manacher(string s){\n\ts = \"@\"+s+\"#\";\n\tint n = (int)size(s);\n\tvector<int>\
     \ p1(n), p2(n); //radii of palindromes (1 odd, 2 even length)\n\t\n\tfor(int i\
     \ = 1, mx = 0, p = 0; i < n-1; i++){\n\t\tp1[i] = (i >= mx) ? 1 : min(mx-i, p1[p*2-i]);\n\
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: content/string/manacher.h
   requiredBy: []
-  timestamp: '2021-07-13 15:15:09-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/manacher.test.cpp

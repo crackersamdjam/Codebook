@@ -18,8 +18,8 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n#line 3 \"content/string/suffix_automaton.h\"\n\
-    \n/**\n * @brief Suffix Array (in O(n log n))\n * @docs docs/suffix_array.md\n\
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/suffix_automaton.h\"\
+    \n\n/**\n * @brief Suffix Array (in O(n log n))\n * @docs docs/suffix_array.md\n\
     \ */\n\nvector<int> sort_cyclic_shifts(string const &s, int const alphabet){\n\
     \tint n = (int)size(s);\n\tvector<int> p(n), c(n), cnt(max(alphabet, n));\n\t\
     for(int i = 0; i < n; i++)\n\t\tcnt[s[i]]++;\n\tfor(int i = 1; i < alphabet; i++)\n\
@@ -76,7 +76,7 @@ data:
   isVerificationFile: false
   path: content/string/suffix_automaton.h
   requiredBy: []
-  timestamp: '2021-07-13 15:45:59-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: content/string/suffix_automaton.h

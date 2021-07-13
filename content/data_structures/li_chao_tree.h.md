@@ -21,18 +21,18 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n#line 3 \"content/data_structures/li_chao_tree.h\"\
-    \n\n/**\n * @brief Li Chao Tree\n * @docs docs/li_chao_tree.md\n * @info\n */\n\
-    \ntemplate<typename T> struct line{\n\tT m, b;\n\tT eval(T x){ return m*x + b;}\n\
-    };\n\ntemplate<typename T> struct sparse_li_chao_tree{\n\tint LS, RS;\n\tT def;\n\
-    \tfunction<T(T, T)> merge;\n\t\n\tstruct node{\n\t\tnode *lc, *rc;\n\t\tline<T>\
-    \ val;\n\t\tnode(line<T> _val){\n\t\t\tlc = rc = nullptr;\n\t\t\tval = _val;\n\
-    \t\t}\n\t};\n\tnode *rt = nullptr;\n\t\n\t// merge() should be min or max\n\t\
-    void init(int _LS, int _RS, T _def, function<T(T, T)> _merge){\n\t\tLS = _LS;\n\
-    \t\tRS = _RS;\n\t\tdef = _def;\n\t\tmerge = _merge;\n\t}\n\n\t#define nm (nl+(nr-nl)/2)\n\
-    \t// this works for negative indices too, unlike (nl+nr)/2\n\t\n\tvoid _add(line<T>\
-    \ ln, int nl, int nr, node *&cur){\n\t\tassert(nl <= nr);\n\t\tif(!cur){\n\t\t\
-    \tcur = new node(ln);\n\t\t\treturn;\n\t\t}\n\t\tbool bl = ln.eval(nl) < cur->val.eval(nl);\n\
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/data_structures/li_chao_tree.h\"\
+    \n\n/**\n * @brief Li Chao Tree\n * @docs docs/li_chao_tree.md\n */\n\ntemplate<typename\
+    \ T> struct line{\n\tT m, b;\n\tT eval(T x){ return m*x + b;}\n};\n\ntemplate<typename\
+    \ T> struct sparse_li_chao_tree{\n\tint LS, RS;\n\tT def;\n\tfunction<T(T, T)>\
+    \ merge;\n\t\n\tstruct node{\n\t\tnode *lc, *rc;\n\t\tline<T> val;\n\t\tnode(line<T>\
+    \ _val){\n\t\t\tlc = rc = nullptr;\n\t\t\tval = _val;\n\t\t}\n\t};\n\tnode *rt\
+    \ = nullptr;\n\t\n\t// merge() should be min or max\n\tvoid init(int _LS, int\
+    \ _RS, T _def, function<T(T, T)> _merge){\n\t\tLS = _LS;\n\t\tRS = _RS;\n\t\t\
+    def = _def;\n\t\tmerge = _merge;\n\t}\n\n\t#define nm (nl+(nr-nl)/2)\n\t// this\
+    \ works for negative indices too, unlike (nl+nr)/2\n\t\n\tvoid _add(line<T> ln,\
+    \ int nl, int nr, node *&cur){\n\t\tassert(nl <= nr);\n\t\tif(!cur){\n\t\t\tcur\
+    \ = new node(ln);\n\t\t\treturn;\n\t\t}\n\t\tbool bl = ln.eval(nl) < cur->val.eval(nl);\n\
     \t\tbool bm = ln.eval(nm) < cur->val.eval(nm);\n\t\tif(bm) swap(cur->val, ln);\n\
     \t\tif(nl == nr) return;\n\t\tbl != bm ? _add(ln, nl, nm, cur->lc) : _add(ln,\
     \ nm+1, nr, cur->rc);\n\t}\n\tvoid add(line<T> ln){ _add(ln, LS, RS, rt); }\n\t\
@@ -42,10 +42,10 @@ data:
     \ nr, cur->rc));\n\t}\n\tT get(T x){ return _get(x, LS, RS, rt); }\n\n\t#undef\
     \ nm\n};\n"
   code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Li Chao\
-    \ Tree\n * @docs docs/li_chao_tree.md\n * @info\n */\n\ntemplate<typename T> struct\
-    \ line{\n\tT m, b;\n\tT eval(T x){ return m*x + b;}\n};\n\ntemplate<typename T>\
-    \ struct sparse_li_chao_tree{\n\tint LS, RS;\n\tT def;\n\tfunction<T(T, T)> merge;\n\
-    \t\n\tstruct node{\n\t\tnode *lc, *rc;\n\t\tline<T> val;\n\t\tnode(line<T> _val){\n\
+    \ Tree\n * @docs docs/li_chao_tree.md\n */\n\ntemplate<typename T> struct line{\n\
+    \tT m, b;\n\tT eval(T x){ return m*x + b;}\n};\n\ntemplate<typename T> struct\
+    \ sparse_li_chao_tree{\n\tint LS, RS;\n\tT def;\n\tfunction<T(T, T)> merge;\n\t\
+    \n\tstruct node{\n\t\tnode *lc, *rc;\n\t\tline<T> val;\n\t\tnode(line<T> _val){\n\
     \t\t\tlc = rc = nullptr;\n\t\t\tval = _val;\n\t\t}\n\t};\n\tnode *rt = nullptr;\n\
     \t\n\t// merge() should be min or max\n\tvoid init(int _LS, int _RS, T _def, function<T(T,\
     \ T)> _merge){\n\t\tLS = _LS;\n\t\tRS = _RS;\n\t\tdef = _def;\n\t\tmerge = _merge;\n\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: false
   path: content/data_structures/li_chao_tree.h
   requiredBy: []
-  timestamp: '2021-07-13 15:18:44-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/li_chao_tree.test.cpp

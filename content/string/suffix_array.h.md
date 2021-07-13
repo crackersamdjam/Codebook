@@ -21,12 +21,12 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n#line 3 \"content/string/suffix_array.h\"\n\n\
-    /**\n * @brief Suffix Array (in O(n log n))\n * @docs docs/suffix_array.md\n */\n\
-    \nvector<int> sort_cyclic_shifts(string const &s, int const alphabet){\n\tint\
-    \ n = (int)size(s);\n\tvector<int> p(n), c(n), cnt(max(alphabet, n));\n\tfor(int\
-    \ i = 0; i < n; i++)\n\t\tcnt[s[i]]++;\n\tfor(int i = 1; i < alphabet; i++)\n\t\
-    \tcnt[i] += cnt[i-1];\n\tfor(int i = 0; i < n; i++)\n\t\tp[--cnt[s[i]]] = i;\n\
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/suffix_array.h\"\
+    \n\n/**\n * @brief Suffix Array (in O(n log n))\n * @docs docs/suffix_array.md\n\
+    \ */\n\nvector<int> sort_cyclic_shifts(string const &s, int const alphabet){\n\
+    \tint n = (int)size(s);\n\tvector<int> p(n), c(n), cnt(max(alphabet, n));\n\t\
+    for(int i = 0; i < n; i++)\n\t\tcnt[s[i]]++;\n\tfor(int i = 1; i < alphabet; i++)\n\
+    \t\tcnt[i] += cnt[i-1];\n\tfor(int i = 0; i < n; i++)\n\t\tp[--cnt[s[i]]] = i;\n\
     \tc[p[0]] = 0;\n\tint classes = 1;\n\tfor(int i = 1; i < n; i++){\n\t\tif(s[p[i]]\
     \ != s[p[i-1]])\n\t\t\tclasses++;\n\t\tc[p[i]] = classes-1;\n\t}\n\tvector<int>\
     \ pn(n), cn(n);\n\tfor(int h = 0; (1<<h) < n; h++){\n\t\tfor(int i = 0; i < n;\
@@ -79,7 +79,7 @@ data:
   isVerificationFile: false
   path: content/string/suffix_array.h
   requiredBy: []
-  timestamp: '2021-07-13 15:45:59-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/suffix_array.test.cpp

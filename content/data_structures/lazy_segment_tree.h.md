@@ -21,10 +21,10 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n#line 3 \"content/data_structures/lazy_segment_tree.h\"\
-    \n\n/**\n * @brief Lazy Segment Tree\n * @docs docs/lazy_segment_tree.md\n * @info\n\
-    \ *\n * todo: make \"find first in range\" (from cp algorthms) function\n * to\
-    \ do that, I need a function to check if f(x, current) is good enough, and I also\
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/data_structures/lazy_segment_tree.h\"\
+    \n\n/**\n * @brief Lazy Segment Tree\n * @docs docs/lazy_segment_tree.md\n *\n\
+    \ * todo: make \"find first in range\" (from cp algorthms) function\n * to do\
+    \ that, I need a function to check if f(x, current) is good enough, and I also\
     \ need combine(current, val[rt])\n *\n */\n\ntemplate<class T, class L> struct\
     \ lazy_segment_tree{\n\tint SZ;\n\tvector<T> val;\n\tvector<L> lp;\n\tfunction<T(T,\
     \ T)> merge;\n\tfunction<T(T, L, int, int)> apply;\n\tfunction<L(L, L)> merge_lazy;\n\
@@ -48,9 +48,9 @@ data:
     \ int r, L x){ _update(l, r, x, 0, SZ-1, 1); };\n\n\t#undef lc\n\t#undef rc\n\t\
     #undef nm\n};\n"
   code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Lazy Segment\
-    \ Tree\n * @docs docs/lazy_segment_tree.md\n * @info\n *\n * todo: make \"find\
-    \ first in range\" (from cp algorthms) function\n * to do that, I need a function\
-    \ to check if f(x, current) is good enough, and I also need combine(current, val[rt])\n\
+    \ Tree\n * @docs docs/lazy_segment_tree.md\n *\n * todo: make \"find first in\
+    \ range\" (from cp algorthms) function\n * to do that, I need a function to check\
+    \ if f(x, current) is good enough, and I also need combine(current, val[rt])\n\
     \ *\n */\n\ntemplate<class T, class L> struct lazy_segment_tree{\n\tint SZ;\n\t\
     vector<T> val;\n\tvector<L> lp;\n\tfunction<T(T, T)> merge;\n\tfunction<T(T, L,\
     \ int, int)> apply;\n\tfunction<L(L, L)> merge_lazy;\n\t\n\tvoid init(int n, T\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: false
   path: content/data_structures/lazy_segment_tree.h
   requiredBy: []
-  timestamp: '2021-07-05 21:49:47-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lazy_segment_tree.test.cpp

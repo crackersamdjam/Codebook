@@ -23,10 +23,10 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n#line 3 \"content/data_structures/lazy_segment_tree.h\"\
-    \n\n/**\n * @brief Lazy Segment Tree\n * @docs docs/lazy_segment_tree.md\n * @info\n\
-    \ *\n * todo: make \"find first in range\" (from cp algorthms) function\n * to\
-    \ do that, I need a function to check if f(x, current) is good enough, and I also\
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/data_structures/lazy_segment_tree.h\"\
+    \n\n/**\n * @brief Lazy Segment Tree\n * @docs docs/lazy_segment_tree.md\n *\n\
+    \ * todo: make \"find first in range\" (from cp algorthms) function\n * to do\
+    \ that, I need a function to check if f(x, current) is good enough, and I also\
     \ need combine(current, val[rt])\n *\n */\n\ntemplate<class T, class L> struct\
     \ lazy_segment_tree{\n\tint SZ;\n\tvector<T> val;\n\tvector<L> lp;\n\tfunction<T(T,\
     \ T)> merge;\n\tfunction<T(T, L, int, int)> apply;\n\tfunction<L(L, L)> merge_lazy;\n\
@@ -48,38 +48,38 @@ data:
     \tpush(nl, nr, rt);\n\t\t_update(l, r, x, nl, nm, lc);\n\t\t_update(l, r, x, nm+1,\
     \ nr, rc);\n\t\tval[rt] = merge(val[lc], val[rc]);\n\t}\n\tvoid update(int l,\
     \ int r, L x){ _update(l, r, x, 0, SZ-1, 1); };\n\n\t#undef lc\n\t#undef rc\n\t\
-    #undef nm\n};\n#line 3 \"tests/lazy_segment_tree.test.cpp\"\n\nusing ll = long\
-    \ long;\nusing pll = pair<ll, ll>;\nconstexpr ll mod = 998244353;\n\nint main(){\n\
-    \tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
-    \t\n\tint n, q;\n\tcin>>n>>q;\n\t\n\tlazy_segment_tree<ll, pll> ST;\n\tST.init(n+5,\
-    \ 0, pll(1, 0),\n\t\t[](auto x, auto y){ return (x+y) % mod; },\n\t\t[](auto x,\
-    \ auto y, int l, int r){ return (x*y.first + (r-l+1)*y.second) % mod; },\n\t\t\
-    [](auto x, auto y){ return pll(x.first*y.first % mod, (y.first*x.second + y.second)\
-    \ % mod); }\n\t\t);\n\t\n\tfor(int i = 0; i < n; i++){\n\t\tll a;\n\t\tcin>>a;\n\
-    \t\tST.update(i, i, {0, a});\n\t}\n\twhile(q--){\n\t\tint op;\n\t\tcin>>op;\n\t\
-    \tif(op == 0){\n\t\t\tint l, r; ll b, c;\n\t\t\tcin>>l>>r>>b>>c;\n\t\t\tST.update(l,\
-    \ r-1, {b, c});\n\t\t}\n\t\telse{\n\t\t\tint l, r;\n\t\t\tcin>>l>>r;\n\t\t\tauto\
-    \ a = ST.query(l, r-1);\n\t\t\tcout<<a<<'\\n';\n\t\t}\n\t}\n}\n"
+    #undef nm\n};\n#line 3 \"tests/lazy_segment_tree.test.cpp\"\n\nusing pll = pair<ll,\
+    \ ll>;\nconstexpr ll mod = 998244353;\n\nint main(){\n\tios_base::sync_with_stdio(0);\n\
+    \tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\t\n\tint n, q;\n\tcin>>n>>q;\n\
+    \t\n\tlazy_segment_tree<ll, pll> ST;\n\tST.init(n+5, 0, pll(1, 0),\n\t\t[](auto\
+    \ x, auto y){ return (x+y) % mod; },\n\t\t[](auto x, auto y, int l, int r){ return\
+    \ (x*y.first + (r-l+1)*y.second) % mod; },\n\t\t[](auto x, auto y){ return pll(x.first*y.first\
+    \ % mod, (y.first*x.second + y.second) % mod); }\n\t\t);\n\t\n\tfor(int i = 0;\
+    \ i < n; i++){\n\t\tll a;\n\t\tcin>>a;\n\t\tST.update(i, i, {0, a});\n\t}\n\t\
+    while(q--){\n\t\tint op;\n\t\tcin>>op;\n\t\tif(op == 0){\n\t\t\tint l, r; ll b,\
+    \ c;\n\t\t\tcin>>l>>r>>b>>c;\n\t\t\tST.update(l, r-1, {b, c});\n\t\t}\n\t\telse{\n\
+    \t\t\tint l, r;\n\t\t\tcin>>l>>r;\n\t\t\tauto a = ST.query(l, r-1);\n\t\t\tcout<<a<<'\\\
+    n';\n\t\t}\n\t}\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
-    \n#include \"../content/data_structures/lazy_segment_tree.h\"\n\nusing ll = long\
-    \ long;\nusing pll = pair<ll, ll>;\nconstexpr ll mod = 998244353;\n\nint main(){\n\
-    \tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
-    \t\n\tint n, q;\n\tcin>>n>>q;\n\t\n\tlazy_segment_tree<ll, pll> ST;\n\tST.init(n+5,\
-    \ 0, pll(1, 0),\n\t\t[](auto x, auto y){ return (x+y) % mod; },\n\t\t[](auto x,\
-    \ auto y, int l, int r){ return (x*y.first + (r-l+1)*y.second) % mod; },\n\t\t\
-    [](auto x, auto y){ return pll(x.first*y.first % mod, (y.first*x.second + y.second)\
-    \ % mod); }\n\t\t);\n\t\n\tfor(int i = 0; i < n; i++){\n\t\tll a;\n\t\tcin>>a;\n\
-    \t\tST.update(i, i, {0, a});\n\t}\n\twhile(q--){\n\t\tint op;\n\t\tcin>>op;\n\t\
-    \tif(op == 0){\n\t\t\tint l, r; ll b, c;\n\t\t\tcin>>l>>r>>b>>c;\n\t\t\tST.update(l,\
-    \ r-1, {b, c});\n\t\t}\n\t\telse{\n\t\t\tint l, r;\n\t\t\tcin>>l>>r;\n\t\t\tauto\
-    \ a = ST.query(l, r-1);\n\t\t\tcout<<a<<'\\n';\n\t\t}\n\t}\n}"
+    \n#include \"../content/data_structures/lazy_segment_tree.h\"\n\nusing pll = pair<ll,\
+    \ ll>;\nconstexpr ll mod = 998244353;\n\nint main(){\n\tios_base::sync_with_stdio(0);\n\
+    \tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\t\n\tint n, q;\n\tcin>>n>>q;\n\
+    \t\n\tlazy_segment_tree<ll, pll> ST;\n\tST.init(n+5, 0, pll(1, 0),\n\t\t[](auto\
+    \ x, auto y){ return (x+y) % mod; },\n\t\t[](auto x, auto y, int l, int r){ return\
+    \ (x*y.first + (r-l+1)*y.second) % mod; },\n\t\t[](auto x, auto y){ return pll(x.first*y.first\
+    \ % mod, (y.first*x.second + y.second) % mod); }\n\t\t);\n\t\n\tfor(int i = 0;\
+    \ i < n; i++){\n\t\tll a;\n\t\tcin>>a;\n\t\tST.update(i, i, {0, a});\n\t}\n\t\
+    while(q--){\n\t\tint op;\n\t\tcin>>op;\n\t\tif(op == 0){\n\t\t\tint l, r; ll b,\
+    \ c;\n\t\t\tcin>>l>>r>>b>>c;\n\t\t\tST.update(l, r-1, {b, c});\n\t\t}\n\t\telse{\n\
+    \t\t\tint l, r;\n\t\t\tcin>>l>>r;\n\t\t\tauto a = ST.query(l, r-1);\n\t\t\tcout<<a<<'\\\
+    n';\n\t\t}\n\t}\n}"
   dependsOn:
   - content/data_structures/lazy_segment_tree.h
   - content/utils/template.h
   isVerificationFile: true
   path: tests/lazy_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2021-07-05 21:49:47-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/lazy_segment_tree.test.cpp

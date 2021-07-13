@@ -75,12 +75,13 @@ data:
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\n"
+    #endif\n\nusing namespace std;\nusing ll = long long;\n"
   code: "/**\n * @brief My starter code\n * @docs docs/template.md\n */\n\n#include\
     \ <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\ntemplate<typename\
     \ T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename T, typename...\
     \ Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
-    \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\n"
+    \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\nusing ll = long\
+    \ long;\n"
   dependsOn: []
   isVerificationFile: false
   path: content/utils/template.h
@@ -97,7 +98,7 @@ data:
   - content/string/manacher.h
   - content/string/suffix_array.h
   - content/string/z_algorithm.h
-  timestamp: '2021-07-04 14:49:31-04:00'
+  timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/li_chao_tree.test.cpp
