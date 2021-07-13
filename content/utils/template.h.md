@@ -23,6 +23,9 @@ data:
   - icon: ':warning:'
     path: content/geometry/polygon.h
     title: Polygon
+  - icon: ':warning:'
+    path: content/string/kmp.h
+    title: Knuth-Morris-Pratt Algorithm
   - icon: ':heavy_check_mark:'
     path: content/string/manacher.h
     title: Manacher's Algorithm
@@ -80,6 +83,7 @@ data:
   - content/data_structures/li_chao_tree.h
   - content/data_structures/bit.h
   - content/data_structures/sparse_table.h
+  - content/string/kmp.h
   - content/string/manacher.h
   - content/string/z_algorithm.h
   timestamp: '2021-07-04 14:49:31-04:00'

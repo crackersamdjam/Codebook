@@ -28,6 +28,9 @@ data:
       title: Polygon
   - name: content/string
     pages:
+    - icon: ':warning:'
+      path: content/string/kmp.h
+      title: Knuth-Morris-Pratt Algorithm
     - icon: ':heavy_check_mark:'
       path: content/string/manacher.h
       title: Manacher's Algorithm
