@@ -1,9 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/aplusb"
-#include <bits/stdc++.h>
-#define all(x) (x).begin(), (x).end()
-
-using namespace std;
-
+#include "../content/utils/template.h"
 
 int main(){
 	int a, b;
