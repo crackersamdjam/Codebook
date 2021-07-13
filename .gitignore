@@ -1,10 +1,8 @@
 cmake-build-debug/
 CMakeLists.txt
-.*/
-!.gitignore
-!.gitattributes
-!.github/
-!.verify-helper/
+.idea/
+.verify-helper/cache
+.verify-helper/markdown
 
 # For quick testing
 testing/
