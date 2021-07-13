@@ -4,7 +4,6 @@
 /**
  * @brief Binary Indexed Tree
  * @docs docs/bit.md
- * @info
  */
 
 template<class T> struct bit{

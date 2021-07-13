@@ -4,7 +4,6 @@
 /**
  * @brief Segment Tree
  * @docs docs/segment_tree.md
- * @info
  */
 
 template<class T, class L> struct segment_tree{

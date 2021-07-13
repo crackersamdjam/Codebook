@@ -4,7 +4,6 @@
 /**
  * @brief Manacher's Algorithm
  * @docs docs/manacher.md
- * @info
  */
  
 pair<vector<int>, vector<int>> manacher(string s){

@@ -4,7 +4,6 @@
 /**
  * @brief Li Chao Tree
  * @docs docs/li_chao_tree.md
- * @info
  */
 
 template<typename T> struct line{

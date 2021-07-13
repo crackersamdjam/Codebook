@@ -4,7 +4,6 @@
 /**
  * @brief Polygon
  * @docs docs/polygon.md
- * @info
  */
  
 T getarea(const vector<pt> &v){

@@ -4,7 +4,6 @@
 /**
  * @brief Sparse Table
  * @docs docs/sparse_table.md
- * @info
  */
 
 template<class T> struct sparse_table{

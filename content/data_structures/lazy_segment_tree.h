@@ -4,7 +4,6 @@
 /**
  * @brief Lazy Segment Tree
  * @docs docs/lazy_segment_tree.md
- * @info
  *
  * todo: make "find first in range" (from cp algorthms) function
  * to do that, I need a function to check if f(x, current) is good enough, and I also need combine(current, val[rt])
