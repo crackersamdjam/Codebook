@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: content/utils/template.h
+    title: My starter code
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,16 +15,21 @@ data:
     links:
     - https://judge.yosupo.jp/problem/aplusb
   bundledCode: "#line 1 \"tests/aplusb.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\
-    \n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\nusing namespace\
-    \ std;\n\n\nint main(){\n\tint a, b;\n\tcin>>a>>b;\n\tcout<<a+b<<'\\n';\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include <bits/stdc++.h>\n\
-    #define all(x) (x).begin(), (x).end()\n\nusing namespace std;\n\n\nint main(){\n\
-    \tint a, b;\n\tcin>>a>>b;\n\tcout<<a+b<<'\\n';\n}"
-  dependsOn: []
+    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n * @docs\
+    \ docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
+    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
+    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
+    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
+    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"tests/aplusb.test.cpp\"\
+    \n\nint main(){\n\tint a, b;\n\tcin>>a>>b;\n\tcout<<a+b<<'\\n';\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../content/utils/template.h\"\
+    \n\nint main(){\n\tint a, b;\n\tcin>>a>>b;\n\tcout<<a+b<<'\\n';\n}"
+  dependsOn:
+  - content/utils/template.h
   isVerificationFile: true
   path: tests/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2021-04-01 16:38:46-04:00'
+  timestamp: '2021-07-13 17:58:21-04:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aplusb.test.cpp

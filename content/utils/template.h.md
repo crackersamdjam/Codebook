@@ -40,6 +40,9 @@ data:
     title: Z Algorithm
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: tests/aplusb.test.cpp
+    title: tests/aplusb.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/bit.test.cpp
     title: tests/bit.test.cpp
   - icon: ':heavy_check_mark:'
@@ -105,6 +108,7 @@ data:
   - tests/manacher.test.cpp
   - tests/segment_tree.test.cpp
   - tests/lazy_segment_tree.test.cpp
+  - tests/aplusb.test.cpp
   - tests/z_algorithm.test.cpp
   - tests/bit.test.cpp
   - tests/sparse_table.test.cpp
