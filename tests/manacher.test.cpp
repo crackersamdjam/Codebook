@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/line_add_get_min"
+#define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 #include "../content/string/manacher.h"
 
 int main(){
