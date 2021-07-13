@@ -35,6 +35,12 @@ data:
       path: content/string/manacher.h
       title: Manacher's Algorithm
     - icon: ':heavy_check_mark:'
+      path: content/string/suffix_array.h
+      title: Suffix Array (in O(n log n))
+    - icon: ':warning:'
+      path: content/string/suffix_automaton.h
+      title: Suffix Array (in O(n log n))
+    - icon: ':heavy_check_mark:'
       path: content/string/z_algorithm.h
       title: Z Algorithm
   - name: content/utils
@@ -66,6 +72,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/sparse_table.test.cpp
       title: tests/sparse_table.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/suffix_array.test.cpp
+      title: tests/suffix_array.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/z_algorithm.test.cpp
       title: tests/z_algorithm.test.cpp

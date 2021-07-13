@@ -30,6 +30,12 @@ data:
     path: content/string/manacher.h
     title: Manacher's Algorithm
   - icon: ':heavy_check_mark:'
+    path: content/string/suffix_array.h
+    title: Suffix Array (in O(n log n))
+  - icon: ':warning:'
+    path: content/string/suffix_automaton.h
+    title: Suffix Array (in O(n log n))
+  - icon: ':heavy_check_mark:'
     path: content/string/z_algorithm.h
     title: Z Algorithm
   _extendedVerifiedWith:
@@ -51,6 +57,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/sparse_table.test.cpp
     title: tests/sparse_table.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/suffix_array.test.cpp
+    title: tests/suffix_array.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/z_algorithm.test.cpp
     title: tests/z_algorithm.test.cpp
@@ -83,8 +92,10 @@ data:
   - content/data_structures/li_chao_tree.h
   - content/data_structures/bit.h
   - content/data_structures/sparse_table.h
+  - content/string/suffix_automaton.h
   - content/string/kmp.h
   - content/string/manacher.h
+  - content/string/suffix_array.h
   - content/string/z_algorithm.h
   timestamp: '2021-07-04 14:49:31-04:00'
   verificationStatus: LIBRARY_ALL_AC
@@ -96,6 +107,7 @@ data:
   - tests/z_algorithm.test.cpp
   - tests/bit.test.cpp
   - tests/sparse_table.test.cpp
+  - tests/suffix_array.test.cpp
 documentation_of: content/utils/template.h
 layout: document
 redirect_from:
