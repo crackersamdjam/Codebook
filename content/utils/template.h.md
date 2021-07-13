@@ -23,7 +23,7 @@ data:
   - icon: ':warning:'
     path: content/geometry/polygon.h
     title: Polygon
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: content/string/manacher.h
     title: Manacher's Algorithm
   _extendedVerifiedWith:
@@ -36,7 +36,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/li_chao_tree.test.cpp
     title: tests/li_chao_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/manacher.test.cpp
     title: tests/manacher.test.cpp
   - icon: ':heavy_check_mark:'
@@ -45,9 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/sparse_table.test.cpp
     title: tests/sparse_table.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/template.md
     document_title: My starter code
@@ -76,7 +76,7 @@ data:
   - content/data_structures/sparse_table.h
   - content/string/manacher.h
   timestamp: '2021-07-04 14:49:31-04:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/li_chao_tree.test.cpp
   - tests/manacher.test.cpp

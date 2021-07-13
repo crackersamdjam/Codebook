@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/manacher.test.cpp
     title: tests/manacher.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/manacher.md
     document_title: Manacher's Algorithm
@@ -49,7 +49,7 @@ data:
   path: content/string/manacher.h
   requiredBy: []
   timestamp: '2021-07-13 15:15:09-04:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/manacher.test.cpp
 documentation_of: content/string/manacher.h

@@ -28,12 +28,12 @@ data:
       title: Polygon
   - name: content/string
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: content/string/manacher.h
       title: Manacher's Algorithm
   - name: content/utils
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: content/utils/template.h
       title: My starter code
   verificationCategories:
@@ -51,7 +51,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/li_chao_tree.test.cpp
       title: tests/li_chao_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/manacher.test.cpp
       title: tests/manacher.test.cpp
     - icon: ':heavy_check_mark:'

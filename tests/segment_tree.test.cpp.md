@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/data_structures/segment_tree.h
     title: Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []

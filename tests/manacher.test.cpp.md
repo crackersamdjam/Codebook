@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: content/string/manacher.h
     title: Manacher's Algorithm
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/line_add_get_min
+    PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
     links:
-    - https://judge.yosupo.jp/problem/line_add_get_min
-  bundledCode: "#line 1 \"tests/manacher.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\
+    - https://judge.yosupo.jp/problem/enumerate_palindromes
+  bundledCode: "#line 1 \"tests/manacher.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
     \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n * @docs\
     \ docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
     \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
@@ -38,8 +38,8 @@ data:
     \t\n\tstring s;\n\tcin>>s;\n\tauto [a, b] = manacher(s);\n\tfor(int i = 0; i <\
     \ (int)size(s)-1; i++){\n\t\tcout<<a[i]*2-1<<' '<<b[i+1]*2<<' ';\n\t}\n\tcout<<a.back()<<'\\\
     n';\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/line_add_get_min\"\n#include\
-    \ \"../content/string/manacher.h\"\n\nint main(){\n\tios_base::sync_with_stdio(0);\n\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
+    \n#include \"../content/string/manacher.h\"\n\nint main(){\n\tios_base::sync_with_stdio(0);\n\
     \tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\t\n\tstring s;\n\tcin>>s;\n\t\
     auto [a, b] = manacher(s);\n\tfor(int i = 0; i < (int)size(s)-1; i++){\n\t\tcout<<a[i]*2-1<<'\
     \ '<<b[i+1]*2<<' ';\n\t}\n\tcout<<a.back()<<'\\n';\n}"
@@ -49,8 +49,8 @@ data:
   isVerificationFile: true
   path: tests/manacher.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 15:15:09-04:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-07-13 15:16:01-04:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/manacher.test.cpp
 layout: document
