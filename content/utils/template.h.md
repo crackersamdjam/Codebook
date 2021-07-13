@@ -26,6 +26,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/string/manacher.h
     title: Manacher's Algorithm
+  - icon: ':heavy_check_mark:'
+    path: content/string/z_algorithm.h
+    title: Z Algorithm
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/bit.test.cpp
@@ -45,6 +48,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/sparse_table.test.cpp
     title: tests/sparse_table.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: tests/z_algorithm.test.cpp
+    title: tests/z_algorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: h
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -75,6 +81,7 @@ data:
   - content/data_structures/bit.h
   - content/data_structures/sparse_table.h
   - content/string/manacher.h
+  - content/string/z_algorithm.h
   timestamp: '2021-07-04 14:49:31-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -82,6 +89,7 @@ data:
   - tests/manacher.test.cpp
   - tests/segment_tree.test.cpp
   - tests/lazy_segment_tree.test.cpp
+  - tests/z_algorithm.test.cpp
   - tests/bit.test.cpp
   - tests/sparse_table.test.cpp
 documentation_of: content/utils/template.h

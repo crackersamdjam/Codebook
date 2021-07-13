@@ -31,6 +31,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: content/string/manacher.h
       title: Manacher's Algorithm
+    - icon: ':heavy_check_mark:'
+      path: content/string/z_algorithm.h
+      title: Z Algorithm
   - name: content/utils
     pages:
     - icon: ':heavy_check_mark:'
@@ -60,5 +63,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/sparse_table.test.cpp
       title: tests/sparse_table.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/z_algorithm.test.cpp
+      title: tests/z_algorithm.test.cpp
 layout: toppage
 ---
