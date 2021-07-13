@@ -2,80 +2,77 @@
 #include "../utils/template.h"
 
 /**
- * @brief Suffix Array (in O(n log n))
- * @docs docs/suffix_array.md
+ * @brief Suffix Automaton
+ * @docs docs/suffix_automaton.md
  */
 
-vector<int> sort_cyclic_shifts(string const &s, int const alphabet){
-	int n = (int)size(s);
-	vector<int> p(n), c(n), cnt(max(alphabet, n));
-	for(int i = 0; i < n; i++)
-		cnt[s[i]]++;
-	for(int i = 1; i < alphabet; i++)
-		cnt[i] += cnt[i-1];
-	for(int i = 0; i < n; i++)
-		p[--cnt[s[i]]] = i;
-	c[p[0]] = 0;
-	int classes = 1;
-	for(int i = 1; i < n; i++){
-		if(s[p[i]] != s[p[i-1]])
-			classes++;
-		c[p[i]] = classes-1;
-	}
-	vector<int> pn(n), cn(n);
-	for(int h = 0; (1<<h) < n; h++){
-		for(int i = 0; i < n; i++){
-			pn[i] = p[i] - (1<<h);
-			if(pn[i] < 0)
-				pn[i] += n;
-		}
-		fill(cnt.begin(), cnt.begin()+classes, 0);
-		for(int i = 0; i < n; i++)
-			cnt[c[pn[i]]]++;
-		for(int i = 1; i < classes; i++)
-			cnt[i] += cnt[i-1];
-		for(int i = n-1; i >= 0; i--)
-			p[--cnt[c[pn[i]]]] = pn[i];
-		cn[p[0]] = 0;
-		classes = 1;
-		for(int i = 1; i < n; i++){
-			pair<int, int> cur = {c[p[i]], c[(p[i] + (1<<h)) % n]};
-			pair<int, int> prev = {c[p[i-1]], c[(p[i-1] + (1<<h)) % n]};
-			if(cur != prev)
-				classes++;
-			cn[p[i]] = classes-1;
-		}
-		c.swap(cn);
-	}
-	return p;
-}
-
-vector<int> suffix_array_construction(string s, int const alphabet = 256){
-	s += "$";
-	vector<int> sorted_shifts = sort_cyclic_shifts(s, alphabet);
-	sorted_shifts.erase(sorted_shifts.begin());
-	return sorted_shifts;
-}
-
-// p should be suffix_array_construction(s)
-vector<int> lcp_construction(string const &s, vector<int> const &p){
-	int n = (int)size(s);
-	vector<int> rank(n);
-	for (int i = 0; i < n; i++)
-		rank[p[i]] = i;
+struct suffix_automaton{
+	struct st{
+		int len, par;
+		ll cnt;
+		map<char, int> ch;
+	};
+	vector<st> v;
+	int sz, last;
 	
-	int k = 0;
-	vector<int> lcp(n-1);
-	for(int i = 0; i < n; i++){
-		if(rank[i] == n-1){
-			k = 0;
-			continue;
-		}
-		int j = p[rank[i] + 1];
-		while(i+k < n and j+k < n and s[i+k] == s[j+k])
-			k++;
-		lcp[rank[i]] = k;
-		if(k) k--;
+	void init(int n){
+		v.resize(n*2);
+		v[0].len = 0; //0 is the root
+		v[0].par = -1;
+		sz = 1;
+		last = 0;
 	}
-	return lcp;
-}
+	
+	void extend(char c){
+		int cur = sz++;
+		v[cur].len = v[last].len+1;
+		int p = last;
+		while(p != -1 && !v[p].ch.count(c)){
+			v[p].ch[c] = cur;
+			p = v[p].par;
+		}
+		if(p == -1){
+			v[cur].par = 0;
+		}
+		else{
+			int o = v[p].ch[c]; //"other"
+			if(v[p].len+1 == v[o].len){
+				v[cur].par = o;
+			}
+			else{
+				int clone = sz++; //clone
+				v[clone].ch = v[o].ch;
+				v[clone].par = v[o].par;
+				v[clone].len = v[p].len+1;
+				while(p != -1 && v[p].ch[c] == o){
+					//redirect all these to clone
+					v[p].ch[c] = clone;
+					p = v[p].par;
+				}
+				v[o].par = v[cur].par = clone;
+			}
+		}
+		last = cur;
+	}
+	
+	ll getsz(int x){
+		if(v[x].cnt)
+			return v[x].cnt;
+		for(auto i: v[x].ch)
+			v[x].cnt += getsz(i.second);
+		return ++v[x].cnt;
+	}
+	
+	// k-th lexographically least substring (empty string counts as the 0-th one)
+	string kth(int cur, int k){
+		assert(k < v[cur].cnt);
+		if(!k) return "";
+		k--;
+		for(auto i: v[cur].ch){
+			if(k < v[i.second].cnt)
+				return i.first+kth(i.second, k);
+			k -= v[i.second].cnt;
+		}
+		abort();
+	}
+};
