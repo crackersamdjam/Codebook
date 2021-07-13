@@ -10,8 +10,8 @@ data:
   _pathExtension: h
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/suffix_array.md
-    document_title: Suffix Array (in O(n log n))
+    _deprecated_at_docs: docs/suffix_automaton.md
+    document_title: Suffix Automaton
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
     \ * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
@@ -19,64 +19,53 @@ data:
     template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
     \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
     #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/suffix_automaton.h\"\
-    \n\n/**\n * @brief Suffix Array (in O(n log n))\n * @docs docs/suffix_array.md\n\
-    \ */\n\nvector<int> sort_cyclic_shifts(string const &s, int const alphabet){\n\
-    \tint n = (int)size(s);\n\tvector<int> p(n), c(n), cnt(max(alphabet, n));\n\t\
-    for(int i = 0; i < n; i++)\n\t\tcnt[s[i]]++;\n\tfor(int i = 1; i < alphabet; i++)\n\
-    \t\tcnt[i] += cnt[i-1];\n\tfor(int i = 0; i < n; i++)\n\t\tp[--cnt[s[i]]] = i;\n\
-    \tc[p[0]] = 0;\n\tint classes = 1;\n\tfor(int i = 1; i < n; i++){\n\t\tif(s[p[i]]\
-    \ != s[p[i-1]])\n\t\t\tclasses++;\n\t\tc[p[i]] = classes-1;\n\t}\n\tvector<int>\
-    \ pn(n), cn(n);\n\tfor(int h = 0; (1<<h) < n; h++){\n\t\tfor(int i = 0; i < n;\
-    \ i++){\n\t\t\tpn[i] = p[i] - (1<<h);\n\t\t\tif(pn[i] < 0)\n\t\t\t\tpn[i] += n;\n\
-    \t\t}\n\t\tfill(cnt.begin(), cnt.begin()+classes, 0);\n\t\tfor(int i = 0; i <\
-    \ n; i++)\n\t\t\tcnt[c[pn[i]]]++;\n\t\tfor(int i = 1; i < classes; i++)\n\t\t\t\
-    cnt[i] += cnt[i-1];\n\t\tfor(int i = n-1; i >= 0; i--)\n\t\t\tp[--cnt[c[pn[i]]]]\
-    \ = pn[i];\n\t\tcn[p[0]] = 0;\n\t\tclasses = 1;\n\t\tfor(int i = 1; i < n; i++){\n\
-    \t\t\tpair<int, int> cur = {c[p[i]], c[(p[i] + (1<<h)) % n]};\n\t\t\tpair<int,\
-    \ int> prev = {c[p[i-1]], c[(p[i-1] + (1<<h)) % n]};\n\t\t\tif(cur != prev)\n\t\
-    \t\t\tclasses++;\n\t\t\tcn[p[i]] = classes-1;\n\t\t}\n\t\tc.swap(cn);\n\t}\n\t\
-    return p;\n}\n\nvector<int> suffix_array_construction(string s, int const alphabet\
-    \ = 256){\n\ts += \"$\";\n\tvector<int> sorted_shifts = sort_cyclic_shifts(s,\
-    \ alphabet);\n\tsorted_shifts.erase(sorted_shifts.begin());\n\treturn sorted_shifts;\n\
-    }\n\n// p should be suffix_array_construction(s)\nvector<int> lcp_construction(string\
-    \ const &s, vector<int> const &p){\n\tint n = (int)size(s);\n\tvector<int> rank(n);\n\
-    \tfor (int i = 0; i < n; i++)\n\t\trank[p[i]] = i;\n\t\n\tint k = 0;\n\tvector<int>\
-    \ lcp(n-1);\n\tfor(int i = 0; i < n; i++){\n\t\tif(rank[i] == n-1){\n\t\t\tk =\
-    \ 0;\n\t\t\tcontinue;\n\t\t}\n\t\tint j = p[rank[i] + 1];\n\t\twhile(i+k < n and\
-    \ j+k < n and s[i+k] == s[j+k])\n\t\t\tk++;\n\t\tlcp[rank[i]] = k;\n\t\tif(k)\
-    \ k--;\n\t}\n\treturn lcp;\n}\n"
-  code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Suffix Array\
-    \ (in O(n log n))\n * @docs docs/suffix_array.md\n */\n\nvector<int> sort_cyclic_shifts(string\
-    \ const &s, int const alphabet){\n\tint n = (int)size(s);\n\tvector<int> p(n),\
-    \ c(n), cnt(max(alphabet, n));\n\tfor(int i = 0; i < n; i++)\n\t\tcnt[s[i]]++;\n\
-    \tfor(int i = 1; i < alphabet; i++)\n\t\tcnt[i] += cnt[i-1];\n\tfor(int i = 0;\
-    \ i < n; i++)\n\t\tp[--cnt[s[i]]] = i;\n\tc[p[0]] = 0;\n\tint classes = 1;\n\t\
-    for(int i = 1; i < n; i++){\n\t\tif(s[p[i]] != s[p[i-1]])\n\t\t\tclasses++;\n\t\
-    \tc[p[i]] = classes-1;\n\t}\n\tvector<int> pn(n), cn(n);\n\tfor(int h = 0; (1<<h)\
-    \ < n; h++){\n\t\tfor(int i = 0; i < n; i++){\n\t\t\tpn[i] = p[i] - (1<<h);\n\t\
-    \t\tif(pn[i] < 0)\n\t\t\t\tpn[i] += n;\n\t\t}\n\t\tfill(cnt.begin(), cnt.begin()+classes,\
-    \ 0);\n\t\tfor(int i = 0; i < n; i++)\n\t\t\tcnt[c[pn[i]]]++;\n\t\tfor(int i =\
-    \ 1; i < classes; i++)\n\t\t\tcnt[i] += cnt[i-1];\n\t\tfor(int i = n-1; i >= 0;\
-    \ i--)\n\t\t\tp[--cnt[c[pn[i]]]] = pn[i];\n\t\tcn[p[0]] = 0;\n\t\tclasses = 1;\n\
-    \t\tfor(int i = 1; i < n; i++){\n\t\t\tpair<int, int> cur = {c[p[i]], c[(p[i]\
-    \ + (1<<h)) % n]};\n\t\t\tpair<int, int> prev = {c[p[i-1]], c[(p[i-1] + (1<<h))\
-    \ % n]};\n\t\t\tif(cur != prev)\n\t\t\t\tclasses++;\n\t\t\tcn[p[i]] = classes-1;\n\
-    \t\t}\n\t\tc.swap(cn);\n\t}\n\treturn p;\n}\n\nvector<int> suffix_array_construction(string\
-    \ s, int const alphabet = 256){\n\ts += \"$\";\n\tvector<int> sorted_shifts =\
-    \ sort_cyclic_shifts(s, alphabet);\n\tsorted_shifts.erase(sorted_shifts.begin());\n\
-    \treturn sorted_shifts;\n}\n\n// p should be suffix_array_construction(s)\nvector<int>\
-    \ lcp_construction(string const &s, vector<int> const &p){\n\tint n = (int)size(s);\n\
-    \tvector<int> rank(n);\n\tfor (int i = 0; i < n; i++)\n\t\trank[p[i]] = i;\n\t\
-    \n\tint k = 0;\n\tvector<int> lcp(n-1);\n\tfor(int i = 0; i < n; i++){\n\t\tif(rank[i]\
-    \ == n-1){\n\t\t\tk = 0;\n\t\t\tcontinue;\n\t\t}\n\t\tint j = p[rank[i] + 1];\n\
-    \t\twhile(i+k < n and j+k < n and s[i+k] == s[j+k])\n\t\t\tk++;\n\t\tlcp[rank[i]]\
-    \ = k;\n\t\tif(k) k--;\n\t}\n\treturn lcp;\n}"
+    \n\n/**\n * @brief Suffix Automaton\n * @docs docs/suffix_automaton.md\n */\n\n\
+    struct suffix_automaton{\n\tstruct st{\n\t\tint len, par;\n\t\tll cnt;\n\t\tmap<char,\
+    \ int> ch;\n\t};\n\tvector<st> v;\n\tint sz, last;\n\t\n\tvoid init(int n){\n\t\
+    \tv.resize(n*2);\n\t\tv[0].len = 0; //0 is the root\n\t\tv[0].par = -1;\n\t\t\
+    sz = 1;\n\t\tlast = 0;\n\t}\n\t\n\tvoid extend(char c){\n\t\tint cur = sz++;\n\
+    \t\tv[cur].len = v[last].len+1;\n\t\tint p = last;\n\t\twhile(p != -1 && !v[p].ch.count(c)){\n\
+    \t\t\tv[p].ch[c] = cur;\n\t\t\tp = v[p].par;\n\t\t}\n\t\tif(p == -1){\n\t\t\t\
+    v[cur].par = 0;\n\t\t}\n\t\telse{\n\t\t\tint o = v[p].ch[c]; //\"other\"\n\t\t\
+    \tif(v[p].len+1 == v[o].len){\n\t\t\t\tv[cur].par = o;\n\t\t\t}\n\t\t\telse{\n\
+    \t\t\t\tint clone = sz++; //clone\n\t\t\t\tv[clone].ch = v[o].ch;\n\t\t\t\tv[clone].par\
+    \ = v[o].par;\n\t\t\t\tv[clone].len = v[p].len+1;\n\t\t\t\twhile(p != -1 && v[p].ch[c]\
+    \ == o){\n\t\t\t\t\t//redirect all these to clone\n\t\t\t\t\tv[p].ch[c] = clone;\n\
+    \t\t\t\t\tp = v[p].par;\n\t\t\t\t}\n\t\t\t\tv[o].par = v[cur].par = clone;\n\t\
+    \t\t}\n\t\t}\n\t\tlast = cur;\n\t}\n\t\n\tll getsz(int x){\n\t\tif(v[x].cnt)\n\
+    \t\t\treturn v[x].cnt;\n\t\tfor(auto i: v[x].ch)\n\t\t\tv[x].cnt += getsz(i.second);\n\
+    \t\treturn ++v[x].cnt;\n\t}\n\t\n\t// k-th lexographically least substring (empty\
+    \ string counts as the 0-th one)\n\tstring kth(int cur, int k){\n\t\tassert(k\
+    \ < v[cur].cnt);\n\t\tif(!k) return \"\";\n\t\tk--;\n\t\tfor(auto i: v[cur].ch){\n\
+    \t\t\tif(k < v[i.second].cnt)\n\t\t\t\treturn i.first+kth(i.second, k);\n\t\t\t\
+    k -= v[i.second].cnt;\n\t\t}\n\t\tabort();\n\t}\n};\n"
+  code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Suffix Automaton\n\
+    \ * @docs docs/suffix_automaton.md\n */\n\nstruct suffix_automaton{\n\tstruct\
+    \ st{\n\t\tint len, par;\n\t\tll cnt;\n\t\tmap<char, int> ch;\n\t};\n\tvector<st>\
+    \ v;\n\tint sz, last;\n\t\n\tvoid init(int n){\n\t\tv.resize(n*2);\n\t\tv[0].len\
+    \ = 0; //0 is the root\n\t\tv[0].par = -1;\n\t\tsz = 1;\n\t\tlast = 0;\n\t}\n\t\
+    \n\tvoid extend(char c){\n\t\tint cur = sz++;\n\t\tv[cur].len = v[last].len+1;\n\
+    \t\tint p = last;\n\t\twhile(p != -1 && !v[p].ch.count(c)){\n\t\t\tv[p].ch[c]\
+    \ = cur;\n\t\t\tp = v[p].par;\n\t\t}\n\t\tif(p == -1){\n\t\t\tv[cur].par = 0;\n\
+    \t\t}\n\t\telse{\n\t\t\tint o = v[p].ch[c]; //\"other\"\n\t\t\tif(v[p].len+1 ==\
+    \ v[o].len){\n\t\t\t\tv[cur].par = o;\n\t\t\t}\n\t\t\telse{\n\t\t\t\tint clone\
+    \ = sz++; //clone\n\t\t\t\tv[clone].ch = v[o].ch;\n\t\t\t\tv[clone].par = v[o].par;\n\
+    \t\t\t\tv[clone].len = v[p].len+1;\n\t\t\t\twhile(p != -1 && v[p].ch[c] == o){\n\
+    \t\t\t\t\t//redirect all these to clone\n\t\t\t\t\tv[p].ch[c] = clone;\n\t\t\t\
+    \t\tp = v[p].par;\n\t\t\t\t}\n\t\t\t\tv[o].par = v[cur].par = clone;\n\t\t\t}\n\
+    \t\t}\n\t\tlast = cur;\n\t}\n\t\n\tll getsz(int x){\n\t\tif(v[x].cnt)\n\t\t\t\
+    return v[x].cnt;\n\t\tfor(auto i: v[x].ch)\n\t\t\tv[x].cnt += getsz(i.second);\n\
+    \t\treturn ++v[x].cnt;\n\t}\n\t\n\t// k-th lexographically least substring (empty\
+    \ string counts as the 0-th one)\n\tstring kth(int cur, int k){\n\t\tassert(k\
+    \ < v[cur].cnt);\n\t\tif(!k) return \"\";\n\t\tk--;\n\t\tfor(auto i: v[cur].ch){\n\
+    \t\t\tif(k < v[i.second].cnt)\n\t\t\t\treturn i.first+kth(i.second, k);\n\t\t\t\
+    k -= v[i.second].cnt;\n\t\t}\n\t\tabort();\n\t}\n};"
   dependsOn:
   - content/utils/template.h
   isVerificationFile: false
   path: content/string/suffix_automaton.h
   requiredBy: []
-  timestamp: '2021-07-13 15:53:41-04:00'
+  timestamp: '2021-07-13 15:59:02-04:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: content/string/suffix_automaton.h
@@ -84,5 +73,8 @@ layout: document
 redirect_from:
 - /library/content/string/suffix_automaton.h
 - /library/content/string/suffix_automaton.h.html
-title: Suffix Array (in O(n log n))
+title: Suffix Automaton
 ---
+(Incomplete list of) Useful things to know about SAM:
+- The suffix link tree (SLT) is a suffix trie that has its paths compressed (i.e. a path with no branches will get compressed to one edge).
+- To find number of distinct substrings of multiple strings, just reset `SAM.last` to `0` in between strings.

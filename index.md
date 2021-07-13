@@ -39,7 +39,7 @@ data:
       title: Suffix Array (in O(n log n))
     - icon: ':warning:'
       path: content/string/suffix_automaton.h
-      title: Suffix Array (in O(n log n))
+      title: Suffix Automaton
     - icon: ':heavy_check_mark:'
       path: content/string/z_algorithm.h
       title: Z Algorithm
