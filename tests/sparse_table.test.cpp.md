@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/data_structures/sparse_table.h
     title: Sparse Table
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []

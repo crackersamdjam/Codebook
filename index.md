@@ -26,9 +26,14 @@ data:
     - icon: ':warning:'
       path: content/geometry/polygon.h
       title: Polygon
+  - name: content/string
+    pages:
+    - icon: ':x:'
+      path: content/string/manacher.h
+      title: Manacher's Algorithm
   - name: content/utils
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: content/utils/template.h
       title: My starter code
   verificationCategories:
@@ -46,6 +51,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/li_chao_tree.test.cpp
       title: tests/li_chao_tree.test.cpp
+    - icon: ':x:'
+      path: tests/manacher.test.cpp
+      title: tests/manacher.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/segment_tree.test.cpp
       title: tests/segment_tree.test.cpp

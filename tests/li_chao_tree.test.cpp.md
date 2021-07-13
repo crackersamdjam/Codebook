@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/data_structures/li_chao_tree.h
     title: Li Chao Tree
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []

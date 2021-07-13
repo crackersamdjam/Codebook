@@ -23,6 +23,9 @@ data:
   - icon: ':warning:'
     path: content/geometry/polygon.h
     title: Polygon
+  - icon: ':x:'
+    path: content/string/manacher.h
+    title: Manacher's Algorithm
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: tests/bit.test.cpp
@@ -33,15 +36,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/li_chao_tree.test.cpp
     title: tests/li_chao_tree.test.cpp
+  - icon: ':x:'
+    path: tests/manacher.test.cpp
+    title: tests/manacher.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/segment_tree.test.cpp
     title: tests/segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/sparse_table.test.cpp
     title: tests/sparse_table.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: h
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/template.md
     document_title: My starter code
@@ -68,10 +74,12 @@ data:
   - content/data_structures/li_chao_tree.h
   - content/data_structures/bit.h
   - content/data_structures/sparse_table.h
+  - content/string/manacher.h
   timestamp: '2021-07-04 14:49:31-04:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - tests/li_chao_tree.test.cpp
+  - tests/manacher.test.cpp
   - tests/segment_tree.test.cpp
   - tests/lazy_segment_tree.test.cpp
   - tests/bit.test.cpp
