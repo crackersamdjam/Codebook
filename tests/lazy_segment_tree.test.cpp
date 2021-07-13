@@ -1,7 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 #include "../content/data_structures/lazy_segment_tree.h"
 
-using ll = long long;
 using pll = pair<ll, ll>;
 constexpr ll mod = 998244353;
 

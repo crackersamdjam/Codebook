@@ -1,7 +1,4 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
-#include <bits/stdc++.h>
-#define all(x) (x).begin(), (x).end()
-using namespace std;
 #include "../content/data_structures/sparse_table.h"
 
 int main(){

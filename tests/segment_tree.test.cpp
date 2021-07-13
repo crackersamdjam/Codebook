@@ -1,7 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 #include "../content/data_structures/segment_tree.h"
 
-using ll = long long;
 using p = pair<ll, ll>;
 constexpr ll mod = 998244353;
 

@@ -1,8 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include "../content/data_structures/bit.h"
 
-using ll = long long;
-
 int main(){
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);

@@ -1,8 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/line_add_get_min"
 #include "../content/data_structures/li_chao_tree.h"
 
-using ll = long long;
-
 int main(){
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
