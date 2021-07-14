@@ -42,7 +42,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/aplusb.test.cpp
     title: tests/aplusb.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: tests/atcoder.test.cpp
     title: tests/atcoder.test.cpp
   - icon: ':heavy_check_mark:'
@@ -69,9 +69,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: tests/z_algorithm.test.cpp
     title: tests/z_algorithm.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: h
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/template.md
     document_title: My starter code
@@ -105,7 +105,7 @@ data:
   - content/string/suffix_array.h
   - content/string/z_algorithm.h
   timestamp: '2021-07-13 15:53:41-04:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/li_chao_tree.test.cpp
   - tests/manacher.test.cpp

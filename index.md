@@ -45,7 +45,7 @@ data:
       title: Z Algorithm
   - name: content/utils
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: content/utils/template.h
       title: My starter code
   verificationCategories:
@@ -54,7 +54,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/aplusb.test.cpp
       title: tests/aplusb.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: tests/atcoder.test.cpp
       title: tests/atcoder.test.cpp
     - icon: ':heavy_check_mark:'

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/data_structures/lazy_segment_tree.h
     title: Lazy Segment Tree
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []
