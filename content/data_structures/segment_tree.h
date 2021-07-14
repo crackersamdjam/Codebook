@@ -14,10 +14,8 @@ template<class T, class L> struct segment_tree{
 	
 	void init(int n, T def, function<T(T, T)> f, function<T(T, L)> g){
 		SZ = n;
-		while(n&(n-1))
-			n++;
+		while(n&(n-1)) n++; // next largest power of 2
 		val.resize(2*n, def);
-		// If n is a power of 2, only 2n is needed. Otherwise 4n.
 		merge = f;
 		apply = g;
 	}

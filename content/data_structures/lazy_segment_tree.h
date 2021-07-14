@@ -20,9 +20,9 @@ template<class T, class L> struct lazy_segment_tree{
 	
 	void init(int n, T def, L ldef, function<T(T, T)> f, function<T(T, L, int, int)> g, function<L(L, L)> h){
 		SZ = n;
-		val.resize(__builtin_popcount(n) == 1 ? 2*n : 4*n, def);
+		while(n&(n-1)) n++; // next largest power of 2
+		val.resize(2*n, def);
 		lp.resize(size(val), ldef);
-		// If n is a power of 2, only 2n is needed. Otherwise 4n.
 		merge = f;
 		apply = g;
 		merge_lazy = h;
