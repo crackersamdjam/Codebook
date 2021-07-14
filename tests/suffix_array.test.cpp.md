@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/string/suffix_array.h
     title: Suffix Array (in O(n log n))
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []

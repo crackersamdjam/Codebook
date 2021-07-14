@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: content/string/z_algorithm.h
     title: Z Algorithm
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []

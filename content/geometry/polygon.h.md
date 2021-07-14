@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: content/geometry/point.h
     title: Point
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: content/utils/template.h
     title: My starter code
   _extendedRequiredBy: []
