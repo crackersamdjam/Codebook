@@ -17,7 +17,7 @@ template<class T> struct sparse_table{
 	}
 	void build(vector<T> v, function<T(T, T)> f){
 		merge = f;
-		n = size(v);
+		n = (int)size(v);
 		sp.resize(__lg(n)+1);
 		sp[0] = v;
 		for(int i = 1; i <= __lg(n); i++){
