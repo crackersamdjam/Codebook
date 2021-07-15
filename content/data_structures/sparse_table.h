@@ -21,7 +21,7 @@ template<class T> struct sparse_table{
 		sp.resize(__lg(n)+1);
 		sp[0] = v;
 		for(int i = 1; i <= __lg(n); i++){
-			sp[i].resize(n, -1);
+			sp[i].resize(n);
 			for(int j = 0; j+(1<<i)-1 < n; j++){
 				sp[i][j] = merge(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);
 			}
