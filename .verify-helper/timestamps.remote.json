@@ -6,7 +6,7 @@
 "tests/li_chao_tree.test.cpp": "2021-07-13 15:53:41 -0400",
 "tests/manacher.test.cpp": "2021-07-13 15:53:41 -0400",
 "tests/segment_tree.test.cpp": "2021-07-14 16:06:08 -0400",
-"tests/sparse_table.test.cpp": "2021-07-13 15:53:41 -0400",
+"tests/sparse_table.test.cpp": "2021-07-15 10:51:18 -0400",
 "tests/suffix_array.test.cpp": "2021-07-13 15:53:41 -0400",
 "tests/z_algorithm.test.cpp": "2021-07-13 15:53:41 -0400"
 }
