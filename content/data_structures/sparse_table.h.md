@@ -26,25 +26,25 @@ data:
     \ T> struct sparse_table{\n\t\n\tint n; vector<vector<T>> sp;\n\tfunction<T(T,\
     \ T)> merge;\n\t\n\tT query(int l, int r){\n\t\tint k = __lg(r-l+1);\n\t\treturn\
     \ merge(sp[k][l], sp[k][r-(1<<k)+1]);\n\t}\n\tvoid build(vector<T> v, function<T(T,\
-    \ T)> f){\n\t\tmerge = f;\n\t\tn = size(v);\n\t\tsp.resize(__lg(n)+1);\n\t\tsp[0]\
-    \ = v;\n\t\tfor(int i = 1; i <= __lg(n); i++){\n\t\t\tsp[i].resize(n);\n\t\t\t\
-    for(int j = 0; j+(1<<i)-1 < n; j++){\n\t\t\t\tsp[i][j] = merge(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);\n\
-    \t\t\t}\n\t\t}\n\t}\n};\n"
+    \ T)> f){\n\t\tmerge = f;\n\t\tn = (int)size(v);\n\t\tsp.resize(__lg(n)+1);\n\t\
+    \tsp[0] = v;\n\t\tfor(int i = 1; i <= __lg(n); i++){\n\t\t\tsp[i].resize(n);\n\
+    \t\t\tfor(int j = 0; j+(1<<i)-1 < n; j++){\n\t\t\t\tsp[i][j] = merge(sp[i-1][j],\
+    \ sp[i-1][j+(1<<(i-1))]);\n\t\t\t}\n\t\t}\n\t}\n};\n"
   code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Sparse Table\n\
     \ * @docs docs/sparse_table.md\n */\n\ntemplate<class T> struct sparse_table{\n\
     \t\n\tint n; vector<vector<T>> sp;\n\tfunction<T(T, T)> merge;\n\t\n\tT query(int\
     \ l, int r){\n\t\tint k = __lg(r-l+1);\n\t\treturn merge(sp[k][l], sp[k][r-(1<<k)+1]);\n\
     \t}\n\tvoid build(vector<T> v, function<T(T, T)> f){\n\t\tmerge = f;\n\t\tn =\
-    \ size(v);\n\t\tsp.resize(__lg(n)+1);\n\t\tsp[0] = v;\n\t\tfor(int i = 1; i <=\
-    \ __lg(n); i++){\n\t\t\tsp[i].resize(n);\n\t\t\tfor(int j = 0; j+(1<<i)-1 < n;\
-    \ j++){\n\t\t\t\tsp[i][j] = merge(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);\n\t\t\t\
-    }\n\t\t}\n\t}\n};"
+    \ (int)size(v);\n\t\tsp.resize(__lg(n)+1);\n\t\tsp[0] = v;\n\t\tfor(int i = 1;\
+    \ i <= __lg(n); i++){\n\t\t\tsp[i].resize(n);\n\t\t\tfor(int j = 0; j+(1<<i)-1\
+    \ < n; j++){\n\t\t\t\tsp[i][j] = merge(sp[i-1][j], sp[i-1][j+(1<<(i-1))]);\n\t\
+    \t\t}\n\t\t}\n\t}\n};"
   dependsOn:
   - content/utils/template.h
   isVerificationFile: false
   path: content/data_structures/sparse_table.h
   requiredBy: []
-  timestamp: '2021-07-15 10:51:18-04:00'
+  timestamp: '2021-07-15 10:53:20-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/sparse_table.test.cpp
