@@ -26,6 +26,11 @@ data:
     - icon: ':warning:'
       path: content/geometry/polygon.h
       title: Polygon
+  - name: content/math
+    pages:
+    - icon: ':warning:'
+      path: content/math/fraction.h
+      title: Fraction Class
   - name: content/string
     pages:
     - icon: ':warning:'

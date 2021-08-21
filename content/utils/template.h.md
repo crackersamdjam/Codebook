@@ -24,6 +24,9 @@ data:
     path: content/geometry/polygon.h
     title: Polygon
   - icon: ':warning:'
+    path: content/math/fraction.h
+    title: Fraction Class
+  - icon: ':warning:'
     path: content/string/kmp.h
     title: Knuth-Morris-Pratt Algorithm
   - icon: ':heavy_check_mark:'
@@ -92,31 +95,32 @@ data:
   isVerificationFile: false
   path: content/utils/template.h
   requiredBy:
-  - content/geometry/point.h
-  - content/geometry/polygon.h
-  - content/data_structures/segment_tree.h
+  - content/math/fraction.h
   - content/data_structures/lazy_segment_tree.h
+  - content/data_structures/sparse_table.h
+  - content/data_structures/segment_tree.h
   - content/data_structures/li_chao_tree.h
   - content/data_structures/bit.h
-  - content/data_structures/sparse_table.h
   - content/string/suffix_automaton.h
-  - content/string/kmp.h
-  - content/string/manacher.h
   - content/string/suffix_array.h
+  - content/string/kmp.h
   - content/string/z_algorithm.h
+  - content/string/manacher.h
+  - content/geometry/point.h
+  - content/geometry/polygon.h
   timestamp: '2021-07-13 15:53:41-04:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/li_chao_tree.test.cpp
-  - tests/manacher.test.cpp
   - tests/segment_tree.test.cpp
-  - tests/lazy_segment_tree.test.cpp
   - tests/atcoder.test.cpp
   - tests/aplusb.test.cpp
+  - tests/lazy_segment_tree.test.cpp
+  - tests/manacher.test.cpp
   - tests/z_algorithm.test.cpp
-  - tests/bit.test.cpp
   - tests/sparse_table.test.cpp
+  - tests/li_chao_tree.test.cpp
   - tests/suffix_array.test.cpp
+  - tests/bit.test.cpp
 documentation_of: content/utils/template.h
 layout: document
 redirect_from:
