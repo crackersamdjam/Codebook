@@ -31,22 +31,22 @@ data:
     \t\t\t\tB[u] = 0;\n\t\t\t\tif(btoa[u] == -1 or dfs(btoa[u], L+1, A, B))\n\t\t\t\
     \t\treturn btoa[u] = cur, 1;\n\t\t\t}\n\t\t}\n\t\treturn 0;\n\t}\n\t\n\tvector<pair<int,\
     \ int>> run(){\n\t\tvector<int> A(adj.size()), B(btoa.size()), cur, nx;\n\t\t\
-    while(1){\n\t\t\tfill(all(A), 0);\n\t\t\tfill(all(B), 0);\n\t\t\t/// Find the\
-    \ starting nodes for BFS (i.e. layer 0).\n\t\t\tcur.clear();\n\t\t\tfor(int i:\
-    \ btoa){\n\t\t\t\tif(~i){\n\t\t\t\t\tA[i] = -1;\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\
-    \t\tfor(int i = 0; i < size(adj); i++){\n\t\t\t\tif(A[i] == 0){\n\t\t\t\t\tcur.push_back(i);\n\
-    \t\t\t\t}\n\t\t\t}\n\t\t\t/// Find all layers using bfs.\n\t\t\tfor(int lay =\
-    \ 1;; lay++){\n\t\t\t\tbool islast = 0;\n\t\t\t\tnx.clear();\n\t\t\t\tfor(int\
-    \ i: cur){\n\t\t\t\t\tfor(int j: adj[i]){\n\t\t\t\t\t\tif(btoa[j] == -1){\n\t\t\
-    \t\t\t\t\tB[j] = lay;\n\t\t\t\t\t\t\tislast = 1;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\
-    else if(btoa[j] != i and !B[j]){\n\t\t\t\t\t\t\tB[j] = lay;\n\t\t\t\t\t\t\tnx.push_back(btoa[j]);\n\
-    \t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tif(islast) break;\n\t\t\t\tif(nx.empty())\
-    \ goto out;\n\t\t\t\tfor(int i: nx){\n\t\t\t\t\tA[i] = lay;\n\t\t\t\t}\n\t\t\t\
-    \tswap(cur, nx);\n\t\t\t}\n\t\t\t/// Use DFS to scan for augmenting paths.\n\t\
-    \t\tfor(int i = 0; i < size(adj); i++)\n\t\t\t\tdfs(i, 0, A, B);\n\t\t}\n\t\t\
-    out:;\n\t\tvector<pair<int, int>> matching;\n\t\tfor(int i = 0; i < size(btoa);\
-    \ i++){\n\t\t\tif(~btoa[i]){\n\t\t\t\tmatching.emplace_back(btoa[i], i);\n\t\t\
-    \t}\n\t\t}\n\t\treturn matching;\n\t}\n};\n#line 3 \"tests/hopcroft_karp.test.cpp\"\
+    // A stores the levels of left side nodes, B stores the levels of right side nodes\n\
+    \t\twhile(1){\n\t\t\tfill(all(A), 0);\n\t\t\tfill(all(B), 0);\n\t\t\tcur.clear();\n\
+    \t\t\t// Unmatched A nodes are sources of first layer\n\t\t\tfor(int i: btoa)\n\
+    \t\t\t\tif(~i) A[i] = -1;\n\t\t\tfor(int i = 0; i < size(adj); i++)\n\t\t\t\t\
+    if(A[i] == 0) cur.push_back(i);\n\n\t\t\t/// Find all layers using BFS\n\t\t\t\
+    for(int lay = 1;; lay++){\n\t\t\t\tbool islast = 0;\n\t\t\t\tnx.clear();\n\t\t\
+    \t\tfor(int i: cur){\n\t\t\t\t\tfor(int j: adj[i]){\n\t\t\t\t\t\tif(btoa[j] ==\
+    \ -1){\n\t\t\t\t\t\t\tB[j] = lay;\n\t\t\t\t\t\t\tislast = 1;\n\t\t\t\t\t\t}\n\t\
+    \t\t\t\t\telse if(btoa[j] != i and !B[j]){\n\t\t\t\t\t\t\tB[j] = lay;\n\t\t\t\t\
+    \t\t\tnx.push_back(btoa[j]);\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t\
+    if(islast) break;\n\t\t\t\tif(nx.empty()) goto out;\n\t\t\t\tfor(int i: nx){\n\
+    \t\t\t\t\tA[i] = lay;\n\t\t\t\t}\n\t\t\t\tswap(cur, nx);\n\t\t\t}\n\t\t\t/// Use\
+    \ DFS to scan for augmenting paths\n\t\t\tfor(int i = 0; i < size(adj); i++)\n\
+    \t\t\t\tdfs(i, 0, A, B);\n\t\t}\n\t\tout:;\n\t\tvector<pair<int, int>> matching;\n\
+    \t\tfor(int i = 0; i < size(btoa); i++){\n\t\t\tif(~btoa[i]){\n\t\t\t\tmatching.emplace_back(btoa[i],\
+    \ i);\n\t\t\t}\n\t\t}\n\t\treturn matching;\n\t}\n};\n#line 3 \"tests/hopcroft_karp.test.cpp\"\
     \n\nint main(){\n\thopcroft_karp h;\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\
     \tcin.exceptions(cin.failbit);\n\tint ls, rs, m;\n\tcin>>ls>>rs>>m;\n\th.adj.resize(ls+1);\n\
     \th.btoa.resize(rs+1, -1);\n\t\n\twhile(m--){\n\t\tint a, b;\n\t\tcin>>a>>b;\n\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: tests/hopcroft_karp.test.cpp
   requiredBy: []
-  timestamp: '2021-08-24 16:05:27-04:00'
+  timestamp: '2021-08-24 16:10:21-04:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/hopcroft_karp.test.cpp
