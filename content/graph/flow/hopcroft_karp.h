@@ -26,23 +26,18 @@ struct hopcroft_karp{
 	
 	vector<pair<int, int>> run(){
 		vector<int> A(adj.size()), B(btoa.size()), cur, nx;
+		// A stores the levels of left side nodes, B stores the levels of right side nodes
 		while(1){
 			fill(all(A), 0);
 			fill(all(B), 0);
-			/// Find the starting nodes for BFS (i.e. layer 0).
 			cur.clear();
-			for(int i: btoa){
-				if(~i){
-					A[i] = -1;
-				}
-			}
-			
-			for(int i = 0; i < size(adj); i++){
-				if(A[i] == 0){
-					cur.push_back(i);
-				}
-			}
-			/// Find all layers using bfs.
+			// Unmatched A nodes are sources of first layer
+			for(int i: btoa)
+				if(~i) A[i] = -1;
+			for(int i = 0; i < size(adj); i++)
+				if(A[i] == 0) cur.push_back(i);
+
+			/// Find all layers using BFS
 			for(int lay = 1;; lay++){
 				bool islast = 0;
 				nx.clear();
@@ -65,7 +60,7 @@ struct hopcroft_karp{
 				}
 				swap(cur, nx);
 			}
-			/// Use DFS to scan for augmenting paths.
+			/// Use DFS to scan for augmenting paths
 			for(int i = 0; i < size(adj); i++)
 				dfs(i, 0, A, B);
 		}
