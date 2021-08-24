@@ -26,6 +26,11 @@ data:
     - icon: ':warning:'
       path: content/geometry/polygon.h
       title: Polygon
+  - name: content/graph/flow
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: content/graph/flow/hopcroft_karp.h
+      title: Hopcroft Karp
   - name: content/math
     pages:
     - icon: ':warning:'
@@ -65,6 +70,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/bit.test.cpp
       title: tests/bit.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/hopcroft_karp.test.cpp
+      title: tests/hopcroft_karp.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/lazy_segment_tree.test.cpp
       title: tests/lazy_segment_tree.test.cpp
