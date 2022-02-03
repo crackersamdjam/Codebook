@@ -31,6 +31,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: content/graph/flow/hopcroft_karp.h
       title: Hopcroft Karp
+  - name: content/graph
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: content/graph/tarjan_scc.h
+      title: Tarjan SCC
   - name: content/math
     pages:
     - icon: ':warning:'
@@ -91,6 +96,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: tests/suffix_array.test.cpp
       title: tests/suffix_array.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: tests/tarjan_scc.test.cpp
+      title: tests/tarjan_scc.test.cpp
     - icon: ':heavy_check_mark:'
       path: tests/z_algorithm.test.cpp
       title: tests/z_algorithm.test.cpp
