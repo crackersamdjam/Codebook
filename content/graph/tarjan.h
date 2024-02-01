@@ -6,28 +6,45 @@
  * @docs docs/tarjan.md
  */
 
-struct tarjan_scc {
-	vector<vector<int>> adj;
+enum class TARJAN { SCC, BCC };
+
+template <const TARJAN T>
+struct tarjan {
+	static constexpr bool isBCC = (T == TARJAN::BCC);
+	int n, t, ii;
+	vector<vector<pii>> adj;
 	vector<int> dfn, low, id;
 	vector<bool> ins;
-	int t;
 	stack<int> stk;
 	vector<vector<int>> comps;
 	
-	tarjan_scc(int mm) : adj(mm), dfn(mm), low(mm), id(mm), ins(mm), t(0) {}
+	tarjan(int mm) : n(mm), t(0), ii(0), adj(mm), dfn(mm), low(mm), id(mm), ins(mm) {}
 	
-	// todo: store the previous edge id instead of previous node in case of multiple edges
-	void dfs(int cur, int pre = -1) {
+	void addedge(int a, int b) {
+		if constexpr (!isBCC) {
+			adj[a].emplace_back(b, 0);
+		}
+		else {
+			adj[a].emplace_back(b, ii);
+			adj[b].emplace_back(a, ii);
+			ii++;
+		}
+	}
+
+	void dfs(int cur, int pid) {
 		dfn[cur] = low[cur] = ++t;
 		stk.push(cur);
 		ins[cur] = 1;
-		
-		for (int u: adj[cur]) {
+
+		for (auto [u, i]: adj[cur]) {
+			if (isBCC and i == pid)
+				continue;
+
 			if (!dfn[u]) {
-				dfs(u, cur);
+				dfs(u, i);
 				low[cur] = min(low[cur], low[u]);
 			}
-			else if (ins[u])
+			else if (!isBCC and ins[u])
 				low[cur] = min(low[cur], dfn[u]);
 		}
 		
@@ -42,18 +59,30 @@ struct tarjan_scc {
 			}
 		}
 	}
+
+	void run() {
+		for (int i = 0; i < n; i++) {
+			if (!dfn[i]) {
+				dfs(i, -1);
+			}
+		}
+	}
 };
 
-struct tarjan_bcc {
+// https://en.wikipedia.org/wiki/Biconnected_component
+// Any connected graph decomposes into a tree of biconnected components called the block-cut tree of the graph
+// wait, shouldn't blockcut be the same then??
+
+struct blockcut {
 	int n, t, ei, ncomps;
-	vector<vector<pair<int, int>>> adj;
+	vector<vector<pii>> adj;
 	vector<vector<int>> adj2, comps;
 	vector<int> dfn, low, id;
 	vector<bool> ins;
 	stack<pii> st;
 	set<int> art;
 	
-	tarjan_bcc(int nn) : n(nn), adj(nn), adj2(nn), dfn(nn), low(nn), id(nn), ins(nn), t(0), ei(0), ncomps(0) {}
+	blockcut(int mm) : n(mm), t(0), ei(0), ncomps(0), adj(mm), comps(mm), dfn(mm), low(mm), id(mm), ins(mm) {}
 	
 	void addedge(int a, int b) {
 		adj[a].emplace_back(b, ei);
@@ -95,26 +124,26 @@ struct tarjan_bcc {
 		}
 	}
 
-	void run() {
-		for(int i = 0; i < n; i++){
-			if(!dfn[i]){
+	// Block leaders are numbered [n, n + ncomps)
+	int run() {
+		for (int i = 0; i < n; i++) {
+			if (!dfn[i]) {
+				st.emplace(i, i); // for components with only one vertex?
 				dfs(i, -1);
 				process(-1, -1);
 			}
 		}
-	}
-
-	// new components are numbered [n, n+tt)
-	int constructBCT() {
-		for(int i = 0; i < ncomps; i++){
+		comps.resize(ncomps);
+		adj2.resize(n+ncomps);
+		for (int i = 0; i < ncomps; i++) {
 			sort(all(comps[i]));
-			comps[i].erase(unique(all(comps[i])), comps[i].end());
-			for(int u: comps[i]){
+			makeunique(comps[i]);
+			for (int u: comps[i]) {
 				adj2[n+i].push_back(u);
 				adj2[u].push_back(n+i);
 			}
 		}
-		return ncomps;
+		return n + ncomps;
 	}
 };
 

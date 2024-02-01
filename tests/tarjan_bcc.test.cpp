@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/scc"
+#define PROBLEM "https://judge.yosupo.jp/problem/biconnected_components"
 #include "../content/graph/tarjan.h"
 
 int main() {
@@ -8,15 +8,17 @@ int main() {
 
 	int n, m;
 	cin >> n >> m;
-	tarjan<TARJAN::SCC> t(n);
+	//tarjan<TARJAN::BCC> t(n);
+	blockcut t(n);
 	for (int i = 0, a, b; i < m; i++) {
 		cin >> a >> b;
-		if (a != b)
+		if (a != b) {
 			t.addedge(a, b);
+			t.addedge(b, a);
+		}
 	}
 	t.run();
 	cout << size(t.comps) << '\n';
-	reverse(all(t.comps));
 	for (auto &&v : t.comps) {
 		cout << size(v);
 		for (auto i : v)
