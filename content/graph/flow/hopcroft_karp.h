@@ -3,7 +3,6 @@
 
 /**
  * @brief Hopcroft Karp
- * @docs docs/hopcroft_karp.md
  */
 
 struct hopcroft_karp{

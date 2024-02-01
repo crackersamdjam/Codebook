@@ -3,7 +3,6 @@
 
 /**
  * @brief Fraction Class
- * @docs docs/fraction.md
  */
 
 struct fraction{

@@ -3,7 +3,6 @@
 
 /**
  * @brief Segment Tree
- * @docs docs/segment_tree.md
  */
 
 template<class T, class L> struct segment_tree{

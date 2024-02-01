@@ -3,7 +3,6 @@
 
 /**
  * @brief Suffix Array (in O(n log n))
- * @docs docs/suffix_array.md
  */
 
 vector<int> sort_cyclic_shifts(string const &s, int const alphabet){

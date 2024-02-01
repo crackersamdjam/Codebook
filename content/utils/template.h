@@ -1,6 +1,5 @@
 /**
  * @brief My starter code
- * @docs docs/template.md
  */
 
 #include <bits/stdc++.h>

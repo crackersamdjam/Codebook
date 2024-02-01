@@ -3,7 +3,6 @@
 
 /**
  * @brief Tarjan SCC
- * @docs docs/tarjan_scc.md
  */
 
 struct tarjan_scc{

@@ -3,7 +3,6 @@
 
 /**
  * @brief Point
- * @docs docs/point.md
  */
 
 
