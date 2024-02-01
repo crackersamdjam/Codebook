@@ -7,10 +7,6 @@
 
 Templates are tested on [Library Checker](https://judge.yosupo.jp/) and [Atcoder](https://atcoder.jp/).
 
-Every template will first include `template.h` and start off with `#pragma once`. To easily get a single file that I can use to submit to an online judge, run `oj-bundle filename.cpp`
+Every template will first include `template.h` and start off with `#pragma once`.
+Run `oj-bundle filename.cpp` bundle the headers and solution together.
 
-I'm using snake case instead of pascal case. That's just what I'm used to.
-
-I'm using `.h` instead of `.hpp` headers because that's also what I'm used to.
-
-## Things I want to add
