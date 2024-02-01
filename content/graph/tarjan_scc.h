@@ -9,19 +9,12 @@
 struct tarjan_scc{
 	vector<vector<int>> adj;
 	vector<int> dfn, low, id;
-	int t;
 	vector<bool> ins;
+	int t;
 	stack<int> stk;
 	vector<vector<int>> scc;
 	
-	tarjan_scc(int MM){
-		adj.resize(MM);
-		dfn.resize(MM);
-		low.resize(MM);
-		id.resize(MM);
-		t = 0;
-		ins.resize(MM);
-	}
+	tarjan_scc(int MM) : adj(MM), dfn(MM), low(MM), id(MM), ins(MM), t(0) {}
 	
 	void dfs(int cur){
 		dfn[cur] = low[cur] = ++t;
