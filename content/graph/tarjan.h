@@ -6,45 +6,31 @@
  * @docs docs/tarjan.md
  */
 
-enum class TARJAN { SCC, BCC };
-
-template <const TARJAN T>
-struct tarjan {
-	static constexpr bool isBCC = (T == TARJAN::BCC);
+struct SCC {
 	int n, t, ii;
-	vector<vector<pii>> adj;
+	vector<vector<int>> adj;
 	vector<int> dfn, low, id;
 	vector<bool> ins;
 	stack<int> stk;
 	vector<vector<int>> comps;
 	
-	tarjan(int mm) : n(mm), t(0), ii(0), adj(mm), dfn(mm), low(mm), id(mm), ins(mm) {}
+	SCC(int mm) : n(mm), t(0), ii(0), adj(mm), dfn(mm), low(mm), id(mm), ins(mm) {}
 	
 	void addedge(int a, int b) {
-		if constexpr (!isBCC) {
-			adj[a].emplace_back(b, 0);
-		}
-		else {
-			adj[a].emplace_back(b, ii);
-			adj[b].emplace_back(a, ii);
-			ii++;
-		}
+		adj[a].emplace_back(b);
 	}
 
-	void dfs(int cur, int pid) {
+	void dfs(int cur) {
 		dfn[cur] = low[cur] = ++t;
 		stk.push(cur);
 		ins[cur] = 1;
 
-		for (auto [u, i]: adj[cur]) {
-			if (isBCC and i == pid)
-				continue;
-
+		for (int u: adj[cur]) {
 			if (!dfn[u]) {
-				dfs(u, i);
+				dfs(u);
 				low[cur] = min(low[cur], low[u]);
 			}
-			else if (!isBCC and ins[u])
+			else if (ins[u])
 				low[cur] = min(low[cur], dfn[u]);
 		}
 		
@@ -63,16 +49,13 @@ struct tarjan {
 	void run() {
 		for (int i = 0; i < n; i++) {
 			if (!dfn[i]) {
-				dfs(i, -1);
+				dfs(i);
 			}
 		}
 	}
 };
 
-// https://en.wikipedia.org/wiki/Biconnected_component
-// Any connected graph decomposes into a tree of biconnected components called the block-cut tree of the graph
-// wait, shouldn't blockcut be the same then??
-
+// Any connected graph decomposes into a tree of **biconnected components (BCCs)** called the **block-cut** tree of the graph
 struct blockcut {
 	int n, t, ei, ncomps;
 	vector<vector<pii>> adj;
@@ -128,7 +111,7 @@ struct blockcut {
 	int run() {
 		for (int i = 0; i < n; i++) {
 			if (!dfn[i]) {
-				st.emplace(i, i); // for components with only one vertex?
+				st.emplace(i, i); // for components with only one vertex? // is there a way to do this with stack<int> instead of the pairs?
 				dfs(i, -1);
 				process(-1, -1);
 			}

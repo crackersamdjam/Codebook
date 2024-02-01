@@ -8,7 +8,6 @@ int main() {
 
 	int n, m;
 	cin >> n >> m;
-	//tarjan<TARJAN::BCC> t(n);
 	blockcut t(n);
 	for (int i = 0, a, b; i < m; i++) {
 		cin >> a >> b;
