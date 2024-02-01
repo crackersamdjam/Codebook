@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/scc"
-#include "../content/graph/tarjan_scc.h"
+#include "../content/graph/tarjan.h"
 #define all(x) (x).begin(), (x).end()
 
 using namespace std;
@@ -10,9 +10,9 @@ int main(){
 	cin.tie(0);
 	cin.exceptions(cin.failbit);
 	
-	int n, m;
+	int n,m;
 	cin>>n>>m;
-	tarjan_scc t(n+5);
+	tarjan<TARJAN::SCC> t(n+5);
 	for(int i = 0,a,b; i < m; i++){
 		cin>>a>>b;
 		if(a != b)
@@ -22,9 +22,9 @@ int main(){
 		if(!t.dfn[i])
 			t.dfs(i);
 	}
-	cout<<size(t.scc)<<'\n';
-	reverse(all(t.scc));
-	for(auto &&v: t.scc){
+	cout<<size(t.comps)<<'\n';
+	reverse(all(t.comps));
+	for(auto &&v: t.comps){
 		cout<<size(v);
 		for(auto i: v)
 			cout<<' '<<i;
