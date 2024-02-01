@@ -1,8 +1,7 @@
-cmake-build-debug/
-CMakeLists.txt
-.idea/
-
 # Verification Helper gitignores are handled by .verify-helper/.gitignore
+
+# installed online-judge-verify-helper in venv/
+venv/
 
 # For quick testing
 testing/
