@@ -9,7 +9,7 @@
 "tests/segment_tree.test.cpp": "2024-02-01 17:09:56 -0500",
 "tests/sparse_table.test.cpp": "2024-02-01 17:09:56 -0500",
 "tests/suffix_array.test.cpp": "2024-02-01 17:09:56 -0500",
-"tests/tarjan_blockcut_bccs.test.cpp": "2024-02-01 17:24:44 -0500",
-"tests/tarjan_scc.test.cpp": "2024-02-01 17:24:44 -0500",
+"tests/tarjan_blockcut_bccs.test.cpp": "2024-02-01 17:43:59 -0500",
+"tests/tarjan_scc.test.cpp": "2024-02-01 17:43:59 -0500",
 "tests/z_algorithm.test.cpp": "2024-02-01 17:09:56 -0500"
 }
