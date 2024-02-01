@@ -97,6 +97,9 @@ data:
       path: tests/suffix_array.test.cpp
       title: tests/suffix_array.test.cpp
     - icon: ':heavy_check_mark:'
+      path: tests/tarjan_bcc.test.cpp
+      title: tests/tarjan_bcc.test.cpp
+    - icon: ':heavy_check_mark:'
       path: tests/tarjan_scc.test.cpp
       title: tests/tarjan_scc.test.cpp
     - icon: ':heavy_check_mark:'

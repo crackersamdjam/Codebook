@@ -19,11 +19,12 @@ data:
     - https://judge.yosupo.jp/problem/point_add_range_sum
   bundledCode: "#line 1 \"tests/bit.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\
     \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n */\n\n\
-    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\n\
-    template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
-    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
-    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/data_structures/bit.h\"\
+    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n#define makeunique(x)\
+    \ (x).erase(unique((x).begin(), (x).end()), (x).end());\n\n#ifdef LOCAL\ntemplate<typename\
+    \ T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename T, typename...\
+    \ Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
+    \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\nusing ll = long\
+    \ long;\nusing pii = pair<int, int>;\n#line 3 \"content/data_structures/bit.h\"\
     \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/bit.md\n */\n\ntemplate<class\
     \ T> struct bit{\n\tint SZ;\n\tvector<T> bit;\n\tfunction<T(T, T)> merge;\n\t\n\
     \tvoid init(int n, T def, function<T(T, T)> f){\n\t\tSZ = n;\n\t\tbit.resize(SZ,\
@@ -58,7 +59,7 @@ data:
   isVerificationFile: true
   path: tests/bit.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 15:45:08-05:00'
+  timestamp: '2024-02-01 17:09:56-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/bit.test.cpp

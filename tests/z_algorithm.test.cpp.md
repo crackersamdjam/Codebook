@@ -19,11 +19,12 @@ data:
     - https://judge.yosupo.jp/problem/zalgorithm
   bundledCode: "#line 1 \"tests/z_algorithm.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\
     \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n */\n\n\
-    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\n\
-    template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
-    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
-    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/string/z_algorithm.h\"\
+    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n#define makeunique(x)\
+    \ (x).erase(unique((x).begin(), (x).end()), (x).end());\n\n#ifdef LOCAL\ntemplate<typename\
+    \ T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename T, typename...\
+    \ Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
+    \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\nusing ll = long\
+    \ long;\nusing pii = pair<int, int>;\n#line 3 \"content/string/z_algorithm.h\"\
     \n\n/**\n * @brief Z Algorithm\n * @docs docs/z_algorithm.md\n */\n\nvector<int>\
     \ zed(string s){\n\tint n = (int)size(s);\n\tvector<int> z(n);\n\tfor(int i =\
     \ 1, l = 0, r = 0; i < n; i++){\n\t\tif(i <= r)\n\t\t\tz[i] = min(r-i+1, z[i-l]);\n\
@@ -42,7 +43,7 @@ data:
   isVerificationFile: true
   path: tests/z_algorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 15:45:08-05:00'
+  timestamp: '2024-02-01 17:09:56-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/z_algorithm.test.cpp

@@ -79,6 +79,9 @@ data:
     path: tests/suffix_array.test.cpp
     title: tests/suffix_array.test.cpp
   - icon: ':heavy_check_mark:'
+    path: tests/tarjan_bcc.test.cpp
+    title: tests/tarjan_bcc.test.cpp
+  - icon: ':heavy_check_mark:'
     path: tests/tarjan_scc.test.cpp
     title: tests/tarjan_scc.test.cpp
   - icon: ':heavy_check_mark:'
@@ -91,17 +94,18 @@ data:
     document_title: My starter code
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
-    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef\
+    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n#define\
+    \ makeunique(x) (x).erase(unique((x).begin(), (x).end()), (x).end());\n\n#ifdef\
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
     \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n"
   code: "/**\n * @brief My starter code\n */\n\n#include <bits/stdc++.h>\n#define\
-    \ all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T\
-    \ a){std::cerr<<a<<std::endl;}\ntemplate<typename T, typename... Args> void pr(T\
-    \ a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
-    \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\nusing ll = long\
-    \ long;\nusing pii = pair<int, int>;\n"
+    \ all(x) (x).begin(), (x).end()\n#define makeunique(x) (x).erase(unique((x).begin(),\
+    \ (x).end()), (x).end());\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
+    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
+    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
+    #endif\n\nusing namespace std;\nusing ll = long long;\nusing pii = pair<int, int>;\n"
   dependsOn: []
   isVerificationFile: false
   path: content/utils/template.h
@@ -121,13 +125,14 @@ data:
   - content/string/suffix_automaton.h
   - content/string/kmp.h
   - content/math/fraction.h
-  timestamp: '2024-02-01 15:45:08-05:00'
+  timestamp: '2024-02-01 17:09:56-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lazy_segment_tree.test.cpp
   - tests/li_chao_tree.test.cpp
   - tests/z_algorithm.test.cpp
   - tests/manacher.test.cpp
+  - tests/tarjan_bcc.test.cpp
   - tests/bit.test.cpp
   - tests/atcoder.test.cpp
   - tests/aplusb.test.cpp

@@ -16,7 +16,8 @@ data:
     document_title: Lazy Segment Tree
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
-    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef\
+    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n#define\
+    \ makeunique(x) (x).erase(unique((x).begin(), (x).end()), (x).end());\n\n#ifdef\
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
@@ -74,7 +75,7 @@ data:
   isVerificationFile: false
   path: content/data_structures/lazy_segment_tree.h
   requiredBy: []
-  timestamp: '2024-02-01 15:45:08-05:00'
+  timestamp: '2024-02-01 17:09:56-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lazy_segment_tree.test.cpp
