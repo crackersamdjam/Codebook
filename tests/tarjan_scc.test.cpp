@@ -8,7 +8,7 @@ int main() {
 
 	int n, m;
 	cin >> n >> m;
-	tarjan<TARJAN::SCC> t(n+5);
+	tarjan_scc t(n+5);
 	for (int i = 0, a, b; i < m; i++) {
 		cin >> a >> b;
 		if (a != b)

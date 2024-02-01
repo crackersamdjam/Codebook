@@ -14,3 +14,4 @@ template<typename... Args> void pr(Args... args){}
 
 using namespace std;
 using ll = long long;
+using pii = pair<int, int>;
