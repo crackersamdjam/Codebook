@@ -9,6 +9,6 @@
 "tests/segment_tree.test.cpp": "2024-02-01 09:33:50 -0500",
 "tests/sparse_table.test.cpp": "2024-02-01 09:33:50 -0500",
 "tests/suffix_array.test.cpp": "2024-02-01 09:33:50 -0500",
-"tests/tarjan_scc.test.cpp": "2024-02-01 11:09:33 -0500",
+"tests/tarjan_scc.test.cpp": "2024-02-01 11:19:35 -0500",
 "tests/z_algorithm.test.cpp": "2024-02-01 09:33:50 -0500"
 }
