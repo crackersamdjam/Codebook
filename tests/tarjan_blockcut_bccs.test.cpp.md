@@ -41,27 +41,25 @@ data:
     \t}\n\t\t}\n\t}\n};\n\n// Any connected graph decomposes into a tree of **biconnected\
     \ components (BCCs)** called the **block-cut** tree of the graph\nstruct blockcut\
     \ {\n\tint n, t, ei, ncomps;\n\tvector<vector<pii>> adj;\n\tvector<vector<int>>\
-    \ adj2, comps;\n\tvector<int> dfn, low, id;\n\tvector<bool> ins;\n\tstack<pii>\
+    \ adj2, comps;\n\tvector<int> dfn, low, id;\n\tvector<bool> ins;\n\tstack<int>\
     \ st;\n\tset<int> art;\n\t\n\tblockcut(int mm) : n(mm), t(0), ei(0), ncomps(0),\
     \ adj(mm), comps(mm), dfn(mm), low(mm), id(mm), ins(mm) {}\n\t\n\tvoid addedge(int\
     \ a, int b) {\n\t\tadj[a].emplace_back(b, ei);\n\t\tadj[b].emplace_back(a, ei);\n\
-    \t\tei++;\n\t}\n\n\tvoid process(int u, int v){\n\t\tif (st.empty()) return;\n\
-    \t\twhile (st.size()) {\n\t\t\tpii e = st.top(); st.pop();\n\t\t\tcomps[ncomps].push_back(e.first);\n\
-    \t\t\tcomps[ncomps].push_back(e.second);\n\t\t\tif (e == pii(u, v))\n\t\t\t\t\
-    break;\n\t\t}\n\t\tncomps++;\n\t}\n\n\tvoid dfs(int cur, int pi = -1) {\n\t\t\
-    dfn[cur] = low[cur] = ++t;\n\t\tint ch = 0;\n\t\tfor (auto [u, i]: adj[cur]) {\n\
-    \t\t\tif (i == pi) continue;\n\t\t\tif (!dfn[u]) {\n\t\t\t\tch++;\n\t\t\t\tst.emplace(cur,\
-    \ u);\n\t\t\t\tdfs(u, i);\n\t\t\t\t\n\t\t\t\tlow[cur] = min(low[cur], low[u]);\n\
-    \t\t\t\t\n\t\t\t\tif ((pi == -1 and ch > 1) or (pi != -1 and low[u] >= dfn[cur]))\
-    \ {\n\t\t\t\t\tart.insert(cur);\n\t\t\t\t\tprocess(cur, u);\n\t\t\t\t}\n\t\t\t\
-    }\n\t\t\telse\n\t\t\t\tlow[cur] = min(low[cur], dfn[u]);\n\t\t}\n\t}\n\n\t// Block\
-    \ leaders are numbered [n, n + ncomps)\n\tint run() {\n\t\tfor (int i = 0; i <\
-    \ n; i++) {\n\t\t\tif (!dfn[i]) {\n\t\t\t\tst.emplace(i, i); // for components\
-    \ with only one vertex? // is there a way to do this with stack<int> instead of\
-    \ the pairs?\n\t\t\t\tdfs(i, -1);\n\t\t\t\tprocess(-1, -1);\n\t\t\t}\n\t\t}\n\t\
-    \tcomps.resize(ncomps);\n\t\tadj2.resize(n+ncomps);\n\t\tfor (int i = 0; i < ncomps;\
-    \ i++) {\n\t\t\tsort(all(comps[i]));\n\t\t\tmakeunique(comps[i]);\n\t\t\tfor (int\
-    \ u: comps[i]) {\n\t\t\t\tadj2[n+i].push_back(u);\n\t\t\t\tadj2[u].push_back(n+i);\n\
+    \t\tei++;\n\t}\n\n\tvoid process(int cur){\n\t\tif (st.empty()) return;\n\t\t\
+    while (st.size()) {\n\t\t\tint u = st.top(); st.pop();\n\t\t\tcomps[ncomps].push_back(u);\n\
+    \t\t\tif (u == cur)\n\t\t\t\tbreak;\n\t\t}\n\t\tncomps++;\n\t}\n\n\tvoid dfs(int\
+    \ cur, int pi = -1) {\n\t\tdfn[cur] = low[cur] = ++t;\n\t\tst.push(cur);\n\t\t\
+    int ch = 0;\n\t\tfor (auto [u, i]: adj[cur]) {\n\t\t\tif (i == pi) continue;\n\
+    \t\t\tif (!dfn[u]) {\n\t\t\t\tch++;\n\t\t\t\tdfs(u, i);\n\t\t\t\tlow[cur] = min(low[cur],\
+    \ low[u]);\n\t\t\t\t\n\t\t\t\tif ((pi == -1 and ch > 1) or (pi != -1 and low[u]\
+    \ >= dfn[cur])) {\n\t\t\t\t\tart.insert(cur);\n\t\t\t\t\tst.push(cur);\n\t\t\t\
+    \t\tprocess(u);\n\t\t\t\t}\n\t\t\t}\n\t\t\telse\n\t\t\t\tlow[cur] = min(low[cur],\
+    \ dfn[u]);\n\t\t}\n\t}\n\n\t// Block leaders are numbered [n, n + ncomps)\n\t\
+    int run() {\n\t\tfor (int i = 0; i < n; i++) {\n\t\t\tif (!dfn[i]) {\n\t\t\t\t\
+    dfs(i, -1);\n\t\t\t\tst.push(i);\n\t\t\t\tprocess(-1); // pop stack until empty\n\
+    \t\t\t}\n\t\t}\n\t\tcomps.resize(ncomps);\n\t\tadj2.resize(n+ncomps);\n\t\tfor\
+    \ (int i = 0; i < ncomps; i++) {\n\t\t\tsort(all(comps[i]));\n\t\t\tmakeunique(comps[i]);\n\
+    \t\t\tfor (int u: comps[i]) {\n\t\t\t\tadj2[n+i].push_back(u);\n\t\t\t\tadj2[u].push_back(n+i);\n\
     \t\t\t}\n\t\t}\n\t\treturn n + ncomps;\n\t}\n};\n\n#line 3 \"tests/tarjan_blockcut_bccs.test.cpp\"\
     \n\nint main() {\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
     \n\tint n, m;\n\tcin >> n >> m;\n\tblockcut t(n);\n\tfor (int i = 0, a, b; i <\
@@ -83,7 +81,7 @@ data:
   isVerificationFile: true
   path: tests/tarjan_blockcut_bccs.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 17:24:44-05:00'
+  timestamp: '2024-02-01 17:43:59-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/tarjan_blockcut_bccs.test.cpp
