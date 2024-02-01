@@ -6,7 +6,7 @@
  */
 
 enum class TARJAN { SCC, BCC };
-// add a flag for if we want articulationn points
+// add a flag for if we want articulation points
 
 template <TARJAN arg = TARJAN::SCC>
 struct tarjan {
