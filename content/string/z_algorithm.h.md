@@ -17,16 +17,16 @@ data:
     document_title: Z Algorithm
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
-    \ * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
-    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
-    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
-    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/z_algorithm.h\"\
-    \n\n/**\n * @brief Z Algorithm\n * @docs docs/z_algorithm.md\n */\n\nvector<int>\
-    \ zed(string s){\n\tint n = (int)size(s);\n\tvector<int> z(n);\n\tfor(int i =\
-    \ 1, l = 0, r = 0; i < n; i++){\n\t\tif(i <= r)\n\t\t\tz[i] = min(r-i+1, z[i-l]);\n\
-    \t\twhile(i+z[i] < n and s[z[i]] == s[i+z[i]])\n\t\t\tz[i]++;\n\t\tif(i+z[i]-1\
-    \ > r)\n\t\t\tl = i, r = i+z[i]-1;\n\t}\n\treturn z;\n}\n"
+    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef\
+    \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
+    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
+    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
+    \ std;\nusing ll = long long;\n#line 3 \"content/string/z_algorithm.h\"\n\n/**\n\
+    \ * @brief Z Algorithm\n * @docs docs/z_algorithm.md\n */\n\nvector<int> zed(string\
+    \ s){\n\tint n = (int)size(s);\n\tvector<int> z(n);\n\tfor(int i = 1, l = 0, r\
+    \ = 0; i < n; i++){\n\t\tif(i <= r)\n\t\t\tz[i] = min(r-i+1, z[i-l]);\n\t\twhile(i+z[i]\
+    \ < n and s[z[i]] == s[i+z[i]])\n\t\t\tz[i]++;\n\t\tif(i+z[i]-1 > r)\n\t\t\tl\
+    \ = i, r = i+z[i]-1;\n\t}\n\treturn z;\n}\n"
   code: "#pragma once\n#include \"../utils/template.h\"\n\n/**\n * @brief Z Algorithm\n\
     \ * @docs docs/z_algorithm.md\n */\n\nvector<int> zed(string s){\n\tint n = (int)size(s);\n\
     \tvector<int> z(n);\n\tfor(int i = 1, l = 0, r = 0; i < n; i++){\n\t\tif(i <=\
@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: content/string/z_algorithm.h
   requiredBy: []
-  timestamp: '2021-07-13 15:53:41-04:00'
+  timestamp: '2024-02-01 09:33:50-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/z_algorithm.test.cpp

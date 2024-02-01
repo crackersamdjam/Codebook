@@ -14,12 +14,12 @@ data:
     document_title: Suffix Automaton
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
-    \ * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
-    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
-    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
-    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/suffix_automaton.h\"\
-    \n\n/**\n * @brief Suffix Automaton\n * @docs docs/suffix_automaton.md\n */\n\n\
+    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef\
+    \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
+    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
+    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
+    \ std;\nusing ll = long long;\n#line 3 \"content/string/suffix_automaton.h\"\n\
+    \n/**\n * @brief Suffix Automaton\n * @docs docs/suffix_automaton.md\n */\n\n\
     struct suffix_automaton{\n\tstruct st{\n\t\tint len, par;\n\t\tll cnt;\n\t\tmap<char,\
     \ int> ch;\n\t};\n\tvector<st> v;\n\tint sz, last;\n\t\n\tvoid init(int n){\n\t\
     \tv.resize(n*2);\n\t\tv[0].len = 0; //0 is the root\n\t\tv[0].par = -1;\n\t\t\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: false
   path: content/string/suffix_automaton.h
   requiredBy: []
-  timestamp: '2021-07-13 15:59:02-04:00'
+  timestamp: '2024-02-01 09:33:50-05:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: content/string/suffix_automaton.h

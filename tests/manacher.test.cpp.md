@@ -18,13 +18,13 @@ data:
     links:
     - https://judge.yosupo.jp/problem/enumerate_palindromes
   bundledCode: "#line 1 \"tests/manacher.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/enumerate_palindromes\"\
-    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n * @docs\
-    \ docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
-    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
-    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
-    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/string/manacher.h\"\
-    \n\n/**\n * @brief Manacher's Algorithm\n * @docs docs/manacher.md\n */\n \npair<vector<int>,\
+    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n */\n\n\
+    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\n\
+    template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
+    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
+    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
+    \ std;\nusing ll = long long;\n#line 3 \"content/string/manacher.h\"\n\n/**\n\
+    \ * @brief Manacher's Algorithm\n * @docs docs/manacher.md\n */\n \npair<vector<int>,\
     \ vector<int>> manacher(string s){\n\ts = \"@\"+s+\"#\";\n\tint n = (int)size(s);\n\
     \tvector<int> p1(n), p2(n); //radii of palindromes (1 odd, 2 even length)\n\t\n\
     \tfor(int i = 1, mx = 0, p = 0; i < n-1; i++){\n\t\tp1[i] = (i >= mx) ? 1 : min(mx-i,\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: tests/manacher.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 15:53:41-04:00'
+  timestamp: '2024-02-01 09:33:50-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/manacher.test.cpp

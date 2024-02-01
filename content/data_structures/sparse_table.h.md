@@ -17,11 +17,11 @@ data:
     document_title: Sparse Table
     links: []
   bundledCode: "#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n\
-    \ * @docs docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
-    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
-    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
-    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/data_structures/sparse_table.h\"\
+    \ */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef\
+    \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
+    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
+    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
+    \ std;\nusing ll = long long;\n#line 3 \"content/data_structures/sparse_table.h\"\
     \n\n/**\n * @brief Sparse Table\n * @docs docs/sparse_table.md\n */\n\ntemplate<class\
     \ T> struct sparse_table{\n\t\n\tint n; vector<vector<T>> sp;\n\tfunction<T(T,\
     \ T)> merge;\n\t\n\tT query(int l, int r){\n\t\tint k = __lg(r-l+1);\n\t\treturn\
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: content/data_structures/sparse_table.h
   requiredBy: []
-  timestamp: '2021-07-15 10:53:20-04:00'
+  timestamp: '2024-02-01 09:33:50-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/sparse_table.test.cpp

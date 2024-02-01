@@ -18,21 +18,20 @@ data:
     links:
     - https://judge.yosupo.jp/problem/scc
   bundledCode: "#line 1 \"tests/tarjan_scc.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/scc\"\
-    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n * @docs\
-    \ docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
-    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
-    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
-    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/graph/tarjan_scc.h\"\
-    \n\n/**\n * @brief Tarjan SCC\n * @docs docs/tarjan_scc.md\n */\n\nstruct tarjan_scc{\n\
-    \tvector<vector<int>> adj;\n\tvector<int> dfn, low, id;\n\tint t;\n\tvector<bool>\
-    \ ins;\n\tstack<int> stk;\n\tvector<vector<int>> scc;\n\t\n\ttarjan_scc(int MM){\n\
-    \t\tadj.resize(MM);\n\t\tdfn.resize(MM);\n\t\tlow.resize(MM);\n\t\tid.resize(MM);\n\
-    \t\tt = 0;\n\t\tins.resize(MM);\n\t}\n\t\n\tvoid dfs(int cur){\n\t\tdfn[cur] =\
-    \ low[cur] = ++t;\n\t\tstk.push(cur);\n\t\tins[cur] = 1;\n\t\t\n\t\tfor(auto u:\
-    \ adj[cur]){\n\t\t\tif(!dfn[u]){\n\t\t\t\tdfs(u);\n\t\t\t\tlow[cur] = min(low[cur],\
-    \ low[u]);\n\t\t\t}\n\t\t\telse if(ins[u])\n\t\t\t\tlow[cur] = min(low[cur], dfn[u]);\n\
-    \t\t}\n\t\t\n\t\tif(dfn[cur] == low[cur]){\n\t\t\tint u = -1;\n\t\t\tscc.emplace_back();\n\
+    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n */\n\n\
+    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\n\
+    template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
+    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
+    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
+    \ std;\nusing ll = long long;\n#line 3 \"content/graph/tarjan_scc.h\"\n\n/**\n\
+    \ * @brief Tarjan SCC\n */\n\nstruct tarjan_scc{\n\tvector<vector<int>> adj;\n\
+    \tvector<int> dfn, low, id;\n\tvector<bool> ins;\n\tint t;\n\tstack<int> stk;\n\
+    \tvector<vector<int>> scc;\n\t\n\ttarjan_scc(int MM) : adj(MM), dfn(MM), low(MM),\
+    \ id(MM), ins(MM), t(0) {}\n\t\n\tvoid dfs(int cur){\n\t\tdfn[cur] = low[cur]\
+    \ = ++t;\n\t\tstk.push(cur);\n\t\tins[cur] = 1;\n\t\t\n\t\tfor(auto u: adj[cur]){\n\
+    \t\t\tif(!dfn[u]){\n\t\t\t\tdfs(u);\n\t\t\t\tlow[cur] = min(low[cur], low[u]);\n\
+    \t\t\t}\n\t\t\telse if(ins[u])\n\t\t\t\tlow[cur] = min(low[cur], dfn[u]);\n\t\t\
+    }\n\t\t\n\t\tif(dfn[cur] == low[cur]){\n\t\t\tint u = -1;\n\t\t\tscc.emplace_back();\n\
     \t\t\twhile(u != cur){\n\t\t\t\tu = stk.top(); stk.pop();\n\t\t\t\tins[u] = 0;\n\
     \t\t\t\tid[u] = cur;\n\t\t\t\tscc.back().emplace_back(u);\n\t\t\t}\n\t\t}\n\t\
     }\n};\n#line 3 \"tests/tarjan_scc.test.cpp\"\n#define all(x) (x).begin(), (x).end()\n\
@@ -51,14 +50,14 @@ data:
     }\n\tfor(int i = 0; i < n; i++){\n\t\tif(!t.dfn[i])\n\t\t\tt.dfs(i);\n\t}\n\t\
     cout<<size(t.scc)<<'\\n';\n\treverse(all(t.scc));\n\tfor(auto &&v: t.scc){\n\t\
     \tcout<<size(v);\n\t\tfor(auto i: v)\n\t\t\tcout<<' '<<i;\n\t\tcout<<'\\n';\n\t\
-    }\n}"
+    }\n}\n"
   dependsOn:
   - content/graph/tarjan_scc.h
   - content/utils/template.h
   isVerificationFile: true
   path: tests/tarjan_scc.test.cpp
   requiredBy: []
-  timestamp: '2022-02-02 21:01:45-05:00'
+  timestamp: '2024-02-01 09:33:50-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/tarjan_scc.test.cpp

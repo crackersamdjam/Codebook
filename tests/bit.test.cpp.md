@@ -18,15 +18,15 @@ data:
     links:
     - https://judge.yosupo.jp/problem/point_add_range_sum
   bundledCode: "#line 1 \"tests/bit.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\
-    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n * @docs\
-    \ docs/template.md\n */\n\n#include <bits/stdc++.h>\n#define all(x) (x).begin(),\
-    \ (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\n\
-    template<typename T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<'\
-    \ ',pr(args...);}\n#else\ntemplate<typename... Args> void pr(Args... args){}\n\
-    #endif\n\nusing namespace std;\nusing ll = long long;\n#line 3 \"content/data_structures/bit.h\"\
-    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/bit.md\n */\n\ntemplate<class\
-    \ T> struct bit{\n\tint SZ;\n\tvector<T> bit;\n\tfunction<T(T, T)> merge;\n\t\n\
-    \tvoid init(int n, T def, function<T(T, T)> f){\n\t\tSZ = n;\n\t\tbit.resize(SZ,\
+    \n#line 1 \"content/utils/template.h\"\n/**\n * @brief My starter code\n */\n\n\
+    #include <bits/stdc++.h>\n#define all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\n\
+    template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
+    \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
+    #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
+    \ std;\nusing ll = long long;\n#line 3 \"content/data_structures/bit.h\"\n\n/**\n\
+    \ * @brief Binary Indexed Tree\n * @docs docs/bit.md\n */\n\ntemplate<class T>\
+    \ struct bit{\n\tint SZ;\n\tvector<T> bit;\n\tfunction<T(T, T)> merge;\n\t\n\t\
+    void init(int n, T def, function<T(T, T)> f){\n\t\tSZ = n;\n\t\tbit.resize(SZ,\
     \ def);\n\t\tmerge = f;\n\t}\n\tvoid update(int i, T v){\n\t\tfor(; i < SZ; i\
     \ += i&-i)\n\t\t\tbit[i] = merge(bit[i], v);\n\t}\n\tT query(int i){\n\t\tT x\
     \ = bit[0];\n\t\tfor(; i; i -= i&-i)\n\t\t\tx = merge(x, bit[i]);\n\t\treturn\
@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: tests/bit.test.cpp
   requiredBy: []
-  timestamp: '2021-07-13 15:53:41-04:00'
+  timestamp: '2024-02-01 09:33:50-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/bit.test.cpp
