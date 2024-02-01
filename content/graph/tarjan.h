@@ -62,7 +62,7 @@ struct blockcut {
 	vector<vector<int>> adj2, comps;
 	vector<int> dfn, low, id;
 	vector<bool> ins;
-	stack<pii> st;
+	stack<int> st;
 	set<int> art;
 	
 	blockcut(int mm) : n(mm), t(0), ei(0), ncomps(0), adj(mm), comps(mm), dfn(mm), low(mm), id(mm), ins(mm) {}
@@ -73,13 +73,12 @@ struct blockcut {
 		ei++;
 	}
 
-	void process(int u, int v){
+	void process(int cur){
 		if (st.empty()) return;
 		while (st.size()) {
-			pii e = st.top(); st.pop();
-			comps[ncomps].push_back(e.first);
-			comps[ncomps].push_back(e.second);
-			if (e == pii(u, v))
+			int u = st.top(); st.pop();
+			comps[ncomps].push_back(u);
+			if (u == cur)
 				break;
 		}
 		ncomps++;
@@ -87,19 +86,19 @@ struct blockcut {
 
 	void dfs(int cur, int pi = -1) {
 		dfn[cur] = low[cur] = ++t;
+		st.push(cur);
 		int ch = 0;
 		for (auto [u, i]: adj[cur]) {
 			if (i == pi) continue;
 			if (!dfn[u]) {
 				ch++;
-				st.emplace(cur, u);
 				dfs(u, i);
-				
 				low[cur] = min(low[cur], low[u]);
 				
 				if ((pi == -1 and ch > 1) or (pi != -1 and low[u] >= dfn[cur])) {
 					art.insert(cur);
-					process(cur, u);
+					st.push(cur);
+					process(u);
 				}
 			}
 			else
@@ -111,9 +110,9 @@ struct blockcut {
 	int run() {
 		for (int i = 0; i < n; i++) {
 			if (!dfn[i]) {
-				st.emplace(i, i); // for components with only one vertex? // is there a way to do this with stack<int> instead of the pairs?
 				dfs(i, -1);
-				process(-1, -1);
+				st.push(i);
+				process(-1); // pop stack until empty
 			}
 		}
 		comps.resize(ncomps);
