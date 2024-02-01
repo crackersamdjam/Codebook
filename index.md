@@ -34,8 +34,8 @@ data:
   - name: content/graph
     pages:
     - icon: ':heavy_check_mark:'
-      path: content/graph/tarjan_scc.h
-      title: Tarjan SCC
+      path: content/graph/tarjan.h
+      title: Tarjan's algorithm
   - name: content/math
     pages:
     - icon: ':warning:'

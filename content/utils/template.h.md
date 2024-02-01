@@ -27,8 +27,8 @@ data:
     path: content/graph/flow/hopcroft_karp.h
     title: Hopcroft Karp
   - icon: ':heavy_check_mark:'
-    path: content/graph/tarjan_scc.h
-    title: Tarjan SCC
+    path: content/graph/tarjan.h
+    title: Tarjan's algorithm
   - icon: ':warning:'
     path: content/math/fraction.h
     title: Fraction Class
@@ -106,7 +106,7 @@ data:
   isVerificationFile: false
   path: content/utils/template.h
   requiredBy:
-  - content/graph/tarjan_scc.h
+  - content/graph/tarjan.h
   - content/graph/flow/hopcroft_karp.h
   - content/geometry/point.h
   - content/geometry/polygon.h
