@@ -95,13 +95,13 @@ data:
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n"
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n"
   code: "/**\n * @brief My starter code\n */\n\n#include <bits/stdc++.h>\n#define\
     \ all(x) (x).begin(), (x).end()\n\n#ifdef LOCAL\ntemplate<typename T> void pr(T\
     \ a){std::cerr<<a<<std::endl;}\ntemplate<typename T, typename... Args> void pr(T\
     \ a, Args... args){std::cerr<<a<<' ',pr(args...);}\n#else\ntemplate<typename...\
     \ Args> void pr(Args... args){}\n#endif\n\nusing namespace std;\nusing ll = long\
-    \ long;\n"
+    \ long;\nusing pii = pair<int, int>;\n"
   dependsOn: []
   isVerificationFile: false
   path: content/utils/template.h
@@ -121,7 +121,7 @@ data:
   - content/string/suffix_automaton.h
   - content/string/kmp.h
   - content/math/fraction.h
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/lazy_segment_tree.test.cpp

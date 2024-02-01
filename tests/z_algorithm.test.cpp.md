@@ -23,12 +23,12 @@ data:
     template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/string/z_algorithm.h\"\n\n/**\n\
-    \ * @brief Z Algorithm\n * @docs docs/z_algorithm.md\n */\n\nvector<int> zed(string\
-    \ s){\n\tint n = (int)size(s);\n\tvector<int> z(n);\n\tfor(int i = 1, l = 0, r\
-    \ = 0; i < n; i++){\n\t\tif(i <= r)\n\t\t\tz[i] = min(r-i+1, z[i-l]);\n\t\twhile(i+z[i]\
-    \ < n and s[z[i]] == s[i+z[i]])\n\t\t\tz[i]++;\n\t\tif(i+z[i]-1 > r)\n\t\t\tl\
-    \ = i, r = i+z[i]-1;\n\t}\n\treturn z;\n}\n#line 3 \"tests/z_algorithm.test.cpp\"\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/string/z_algorithm.h\"\
+    \n\n/**\n * @brief Z Algorithm\n * @docs docs/z_algorithm.md\n */\n\nvector<int>\
+    \ zed(string s){\n\tint n = (int)size(s);\n\tvector<int> z(n);\n\tfor(int i =\
+    \ 1, l = 0, r = 0; i < n; i++){\n\t\tif(i <= r)\n\t\t\tz[i] = min(r-i+1, z[i-l]);\n\
+    \t\twhile(i+z[i] < n and s[z[i]] == s[i+z[i]])\n\t\t\tz[i]++;\n\t\tif(i+z[i]-1\
+    \ > r)\n\t\t\tl = i, r = i+z[i]-1;\n\t}\n\treturn z;\n}\n#line 3 \"tests/z_algorithm.test.cpp\"\
     \n\nint main(){\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
     \t\n\tstring s;\n\tcin>>s;\n\tauto v = zed(s);\n\tv[0] = size(s);\n\tfor(int i:\
     \ v)\n\t\tcout<<i<<' ';\n}\n"
@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: tests/z_algorithm.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/z_algorithm.test.cpp

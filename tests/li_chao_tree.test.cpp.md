@@ -23,7 +23,7 @@ data:
     template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/data_structures/li_chao_tree.h\"\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/data_structures/li_chao_tree.h\"\
     \n\n/**\n * @brief Li Chao Tree\n * @docs docs/li_chao_tree.md\n */\n\ntemplate<typename\
     \ T> struct line{\n\tT m, b;\n\tT eval(T x){ return m*x + b;}\n};\n\ntemplate<typename\
     \ T> struct sparse_li_chao_tree{\n\tint LS, RS;\n\tT def;\n\tfunction<T(T, T)>\
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: tests/li_chao_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/li_chao_tree.test.cpp

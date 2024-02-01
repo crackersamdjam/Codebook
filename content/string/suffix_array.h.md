@@ -20,8 +20,8 @@ data:
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/string/suffix_array.h\"\n\n/**\n\
-    \ * @brief Suffix Array (in O(n log n))\n */\n\nvector<int> sort_cyclic_shifts(string\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/string/suffix_array.h\"\
+    \n\n/**\n * @brief Suffix Array (in O(n log n))\n */\n\nvector<int> sort_cyclic_shifts(string\
     \ const &s, int const alphabet){\n\tint n = (int)size(s);\n\tvector<int> p(n),\
     \ c(n), cnt(max(alphabet, n));\n\tfor(int i = 0; i < n; i++)\n\t\tcnt[s[i]]++;\n\
     \tfor(int i = 1; i < alphabet; i++)\n\t\tcnt[i] += cnt[i-1];\n\tfor(int i = 0;\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: false
   path: content/string/suffix_array.h
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/suffix_array.test.cpp

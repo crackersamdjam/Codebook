@@ -20,8 +20,8 @@ data:
     template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"tests/aplusb.test.cpp\"\n\nint main(){\n\
-    \tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"tests/aplusb.test.cpp\"\
+    \n\nint main(){\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
     \t\n\tint a, b;\n\tcin>>a>>b;\n\tcout<<a+b<<'\\n';\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/aplusb\"\n#include \"../content/utils/template.h\"\
     \n\nint main(){\n\tios_base::sync_with_stdio(0);\n\tcin.tie(0);\n\tcin.exceptions(cin.failbit);\n\
@@ -31,7 +31,7 @@ data:
   isVerificationFile: true
   path: tests/aplusb.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/aplusb.test.cpp

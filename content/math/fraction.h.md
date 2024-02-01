@@ -17,9 +17,9 @@ data:
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/math/fraction.h\"\n\n/**\n *\
-    \ @brief Fraction Class\n */\n\nstruct fraction{\n\tll n, d;\n\tfraction(ll num\
-    \ = 0, ll den = 1){\n\t\tn = num, d = den;\n\t\treduce();\n\t}\n\tvoid reduce(){\n\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/math/fraction.h\"\
+    \n\n/**\n * @brief Fraction Class\n */\n\nstruct fraction{\n\tll n, d;\n\tfraction(ll\
+    \ num = 0, ll den = 1){\n\t\tn = num, d = den;\n\t\treduce();\n\t}\n\tvoid reduce(){\n\
     \t\tif(d < 0) d *= -1, n *= -1;\n\t\tif(n == 0)d = 1;\n\t\telse if (d == 0)n =\
     \ 0;\n\t\telse {\n\t\t\tll gc = __gcd((n < 0 ? -n : n), d);\n\t\t\tn /= gc, d\
     \ /= gc;\n\t\t}\n\t}\n\tll toLL() const { return n / d; }\n\tdouble toDouble()\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: false
   path: content/math/fraction.h
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: content/math/fraction.h

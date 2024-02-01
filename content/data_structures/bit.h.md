@@ -21,10 +21,10 @@ data:
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/data_structures/bit.h\"\n\n/**\n\
-    \ * @brief Binary Indexed Tree\n * @docs docs/bit.md\n */\n\ntemplate<class T>\
-    \ struct bit{\n\tint SZ;\n\tvector<T> bit;\n\tfunction<T(T, T)> merge;\n\t\n\t\
-    void init(int n, T def, function<T(T, T)> f){\n\t\tSZ = n;\n\t\tbit.resize(SZ,\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/data_structures/bit.h\"\
+    \n\n/**\n * @brief Binary Indexed Tree\n * @docs docs/bit.md\n */\n\ntemplate<class\
+    \ T> struct bit{\n\tint SZ;\n\tvector<T> bit;\n\tfunction<T(T, T)> merge;\n\t\n\
+    \tvoid init(int n, T def, function<T(T, T)> f){\n\t\tSZ = n;\n\t\tbit.resize(SZ,\
     \ def);\n\t\tmerge = f;\n\t}\n\tvoid update(int i, T v){\n\t\tfor(; i < SZ; i\
     \ += i&-i)\n\t\t\tbit[i] = merge(bit[i], v);\n\t}\n\tT query(int i){\n\t\tT x\
     \ = bit[0];\n\t\tfor(; i; i -= i&-i)\n\t\t\tx = merge(x, bit[i]);\n\t\treturn\
@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: content/data_structures/bit.h
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/bit.test.cpp

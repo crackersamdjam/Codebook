@@ -23,7 +23,7 @@ data:
     template<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/data_structures/lazy_segment_tree.h\"\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/data_structures/lazy_segment_tree.h\"\
     \n\n/**\n * @brief Lazy Segment Tree\n *\n * todo: make \"find first in range\"\
     \ (from cp algorthms) function\n * to do that, I need a function to check if f(x,\
     \ current) is good enough, and I also need combine(current, val[rt])\n *\n */\n\
@@ -78,7 +78,7 @@ data:
   isVerificationFile: true
   path: tests/lazy_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: tests/lazy_segment_tree.test.cpp

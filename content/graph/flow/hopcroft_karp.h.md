@@ -20,8 +20,8 @@ data:
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/graph/flow/hopcroft_karp.h\"\n\
-    \n/**\n * @brief Hopcroft Karp\n */\n\nstruct hopcroft_karp{\n\tvector<vector<int>>\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/graph/flow/hopcroft_karp.h\"\
+    \n\n/**\n * @brief Hopcroft Karp\n */\n\nstruct hopcroft_karp{\n\tvector<vector<int>>\
     \ adj;\n\tvector<int> btoa;\n\t\n\tbool dfs(int cur, int L, vector<int>& A, vector<int>&\
     \ B){\n\t\tif(A[cur] != L)\n\t\t\treturn 0;\n\t\tA[cur] = -1;\n\t\tfor(int u:\
     \ adj[cur]){\n\t\t\tif(B[u] == L+1){\n\t\t\t\tB[u] = 0;\n\t\t\t\tif(btoa[u] ==\
@@ -73,7 +73,7 @@ data:
   isVerificationFile: false
   path: content/graph/flow/hopcroft_karp.h
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - tests/hopcroft_karp.test.cpp

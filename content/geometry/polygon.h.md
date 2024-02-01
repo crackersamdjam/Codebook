@@ -20,17 +20,17 @@ data:
     \ LOCAL\ntemplate<typename T> void pr(T a){std::cerr<<a<<std::endl;}\ntemplate<typename\
     \ T, typename... Args> void pr(T a, Args... args){std::cerr<<a<<' ',pr(args...);}\n\
     #else\ntemplate<typename... Args> void pr(Args... args){}\n#endif\n\nusing namespace\
-    \ std;\nusing ll = long long;\n#line 3 \"content/geometry/point.h\"\n\n/**\n *\
-    \ @brief Point\n */\n\n\n//using T = long double; constexpr T eps = 1e-9;\nusing\
-    \ T = long long; constexpr T eps = 0;\n// all numbers that can be represented\
-    \ by long long can also be\n// accurately represented by long double, it's just\
-    \ slower\n\nusing pt = complex<T>;\n#define x real()\n#define y imag()\n\nistream\
-    \ &operator >> (istream &stream, pt &p){\n\tT X, Y; stream>>X>>Y; p = pt(X, Y);\
-    \ return stream;}\nostream &operator << (ostream &stream, const pt &p){\n\treturn\
-    \ stream<<p.x<<' '<<p.y;}\n\nnamespace std{\n\tbool operator<(const pt &a, const\
-    \ pt &b){\n\t\treturn a.x < b.x or (a.x-eps <= b.x and a.y < b.y-eps);}\n\tbool\
-    \ operator==(const pt &a, const pt &b){\n\t\treturn !(a < b) and !(b < a);}\n\t\
-    bool operator<=(const pt &a, const pt &b){\n\t\treturn !(b < a);}\n}\n\nT dot(pt\
+    \ std;\nusing ll = long long;\nusing pii = pair<int, int>;\n#line 3 \"content/geometry/point.h\"\
+    \n\n/**\n * @brief Point\n */\n\n\n//using T = long double; constexpr T eps =\
+    \ 1e-9;\nusing T = long long; constexpr T eps = 0;\n// all numbers that can be\
+    \ represented by long long can also be\n// accurately represented by long double,\
+    \ it's just slower\n\nusing pt = complex<T>;\n#define x real()\n#define y imag()\n\
+    \nistream &operator >> (istream &stream, pt &p){\n\tT X, Y; stream>>X>>Y; p =\
+    \ pt(X, Y); return stream;}\nostream &operator << (ostream &stream, const pt &p){\n\
+    \treturn stream<<p.x<<' '<<p.y;}\n\nnamespace std{\n\tbool operator<(const pt\
+    \ &a, const pt &b){\n\t\treturn a.x < b.x or (a.x-eps <= b.x and a.y < b.y-eps);}\n\
+    \tbool operator==(const pt &a, const pt &b){\n\t\treturn !(a < b) and !(b < a);}\n\
+    \tbool operator<=(const pt &a, const pt &b){\n\t\treturn !(b < a);}\n}\n\nT dot(pt\
     \ a, pt b){ return a.x*b.x + a.y*b.y;}\nT norm(pt a){ return dot(a, a);} // norm\
     \ is distance squared. Don't use std::norm because of inaccuracy\nT cross(pt a,\
     \ pt b){ return a.x*b.y - a.y*b.x;} // right hand rule: a-index, b-middle, cross-thumb.\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: content/geometry/polygon.h
   requiredBy: []
-  timestamp: '2024-02-01 09:33:50-05:00'
+  timestamp: '2024-02-01 15:45:08-05:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: content/geometry/polygon.h
