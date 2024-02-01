@@ -79,8 +79,8 @@ data:
     path: tests/suffix_array.test.cpp
     title: tests/suffix_array.test.cpp
   - icon: ':heavy_check_mark:'
-    path: tests/tarjan_bcc.test.cpp
-    title: tests/tarjan_bcc.test.cpp
+    path: tests/tarjan_blockcut_bccs.test.cpp
+    title: tests/tarjan_blockcut_bccs.test.cpp
   - icon: ':heavy_check_mark:'
     path: tests/tarjan_scc.test.cpp
     title: tests/tarjan_scc.test.cpp
@@ -128,11 +128,11 @@ data:
   timestamp: '2024-02-01 17:09:56-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - tests/tarjan_blockcut_bccs.test.cpp
   - tests/lazy_segment_tree.test.cpp
   - tests/li_chao_tree.test.cpp
   - tests/z_algorithm.test.cpp
   - tests/manacher.test.cpp
-  - tests/tarjan_bcc.test.cpp
   - tests/bit.test.cpp
   - tests/atcoder.test.cpp
   - tests/aplusb.test.cpp
