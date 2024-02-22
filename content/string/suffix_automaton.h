@@ -6,6 +6,8 @@
  * @docs docs/suffix_automaton.md
  */
 
+// TODO: add code to rebuild suffix link tree
+
 struct suffix_automaton{
 	struct st{
 		int len, par;
