@@ -107,8 +107,8 @@ data:
   timestamp: '2024-02-01 17:43:59-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/tarjan_blockcut_bccs.test.cpp
   - tests/tarjan_scc.test.cpp
+  - tests/tarjan_blockcut_bccs.test.cpp
 documentation_of: content/graph/tarjan.h
 layout: document
 redirect_from:

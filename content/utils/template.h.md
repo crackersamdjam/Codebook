@@ -110,37 +110,37 @@ data:
   isVerificationFile: false
   path: content/utils/template.h
   requiredBy:
-  - content/graph/tarjan.h
   - content/graph/flow/hopcroft_karp.h
+  - content/graph/tarjan.h
+  - content/math/fraction.h
   - content/geometry/point.h
   - content/geometry/polygon.h
-  - content/data_structures/li_chao_tree.h
+  - content/data_structures/segment_tree.h
   - content/data_structures/bit.h
   - content/data_structures/lazy_segment_tree.h
-  - content/data_structures/segment_tree.h
   - content/data_structures/sparse_table.h
-  - content/string/z_algorithm.h
-  - content/string/suffix_array.h
+  - content/data_structures/li_chao_tree.h
   - content/string/manacher.h
-  - content/string/suffix_automaton.h
+  - content/string/suffix_array.h
+  - content/string/z_algorithm.h
   - content/string/kmp.h
-  - content/math/fraction.h
+  - content/string/suffix_automaton.h
   timestamp: '2024-02-01 17:09:56-05:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - tests/tarjan_blockcut_bccs.test.cpp
   - tests/lazy_segment_tree.test.cpp
-  - tests/li_chao_tree.test.cpp
-  - tests/z_algorithm.test.cpp
+  - tests/tarjan_scc.test.cpp
   - tests/manacher.test.cpp
+  - tests/li_chao_tree.test.cpp
+  - tests/tarjan_blockcut_bccs.test.cpp
+  - tests/suffix_array.test.cpp
   - tests/bit.test.cpp
-  - tests/atcoder.test.cpp
+  - tests/z_algorithm.test.cpp
   - tests/aplusb.test.cpp
   - tests/hopcroft_karp.test.cpp
-  - tests/tarjan_scc.test.cpp
-  - tests/segment_tree.test.cpp
+  - tests/atcoder.test.cpp
   - tests/sparse_table.test.cpp
-  - tests/suffix_array.test.cpp
+  - tests/segment_tree.test.cpp
 documentation_of: content/utils/template.h
 layout: document
 redirect_from:
